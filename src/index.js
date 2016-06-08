@@ -1,9 +1,9 @@
-import hasAttribute from './hasAttribute';
-import getNodeType from './getNodeType';
-import getAttribute from './getAttribute';
+import hasProp from './hasProp';
+import elementType from './elementType';
+import getProp from './getProp';
 
 module.exports = {
-  hasAttribute,
-  getNodeType,
-  getAttribute,
+  hasProp,
+  elementType,
+  getProp,
 };

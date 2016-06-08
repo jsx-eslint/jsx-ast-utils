@@ -1,22 +1,22 @@
 /* eslint-env mocha */
 import assert from 'assert';
 import { getOpeningElement } from '../helper';
-import getNodeType from '../../src/getNodeType';
+import elementType from '../../src/elementType';
 
-describe('getNodeType tests', () => {
+describe('elementType tests', () => {
   it('should export a function', () => {
     const expected = 'function';
-    const actual = typeof getNodeType;
+    const actual = typeof elementType;
 
     assert.equal(expected, actual);
   });
 
   it('should throw an error if the argument is missing', () => {
-    assert.throws(() => { getNodeType(); }, Error);
+    assert.throws(() => { elementType(); }, Error);
   });
 
   it('should throw an error if the argument not a JSX node', () => {
-    assert.throws(() => { getNodeType({ a: 'foo' }); }, Error);
+    assert.throws(() => { elementType({ a: 'foo' }); }, Error);
   });
 
   it('should return the correct type of the DOM element given its node object', () => {
@@ -24,7 +24,7 @@ describe('getNodeType tests', () => {
     const node = getOpeningElement(code);
 
     const expected = 'div';
-    const actual = getNodeType(node);
+    const actual = elementType(node);
 
     assert.equal(expected, actual);
   });
@@ -34,7 +34,7 @@ describe('getNodeType tests', () => {
     const node = getOpeningElement(code);
 
     const expected = 'Slider';
-    const actual = getNodeType(node);
+    const actual = elementType(node);
 
     assert.equal(expected, actual);
   });
@@ -44,7 +44,7 @@ describe('getNodeType tests', () => {
     const node = getOpeningElement(code);
 
     const expected = 'UX.Slider';
-    const actual = getNodeType(node);
+    const actual = elementType(node);
 
     assert.equal(expected, actual);
   });

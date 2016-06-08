@@ -1,7 +1,7 @@
 /**
  * Returns the tagName associated with a JSXElement.
  */
-export default function getNodeType(node = {}) {
+export default function elementType(node = {}) {
   const { name } = node;
 
   if (!name) {
