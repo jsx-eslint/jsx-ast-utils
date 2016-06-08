@@ -3,6 +3,10 @@ const DEFAULT_OPTIONS = {
   ignoreCase: true,
 };
 
+/**
+ * Returns boolean indicating whether an attribute exists on the attributes
+ * property of a JSX element node.
+ */
 export default function hasAttribute(attributes = [], attribute = '', options = DEFAULT_OPTIONS) {
   const attributeName = options.ignoreCase ? attribute.toUpperCase() : attribute;
 
