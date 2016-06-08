@@ -21,3 +21,23 @@ export default function hasAttribute(attributes = [], attribute = '', options = 
     return attributeName === currentAttribute;
   });
 }
+
+/**
+ * Given the attributes on a node and a list of attributes to check, this returns a boolean
+ * indicating if any of them exist on the node.
+ */
+export function hasAnyAttribute(nodeAttributes = [], attributes = [], options = DEFAULT_OPTIONS) {
+  const attributesToCheck = typeof attributes === 'string' ? attributes.split(' ') : attributes;
+
+  return attributesToCheck.some(attribute => hasAttribute(nodeAttributes, attribute, options));
+}
+
+/**
+ * Given the attributes on a node and a list of attributes to check, this returns a boolean
+ * indicating if all of them exist on the node
+ */
+export function hasEveryAttribute(nodeAttributes = [], attributes = [], options = DEFAULT_OPTIONS) {
+  const attributesToCheck = typeof attributes === 'string' ? attributes.split(' ') : attributes;
+
+  return attributesToCheck.every(attribute => hasAttribute(nodeAttributes, attribute, options));
+}
