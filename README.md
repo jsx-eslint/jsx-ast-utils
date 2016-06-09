@@ -3,12 +3,20 @@
     <img src="https://api.travis-ci.org/evcohen/jsx-ast-utils.svg?branch=master"
          alt="build status">
   </a>
+  <a href="https://npmjs.org/package/jsx-ast-utils">
+    <img src="https://img.shields.io/npm/v/jsx-ast-utils.svg"
+         alt="npm version">
+  </a>
   <a href="https://github.com/evcohen/jsx-ast-utils/blob/master/LICENSE.md">
     <img src="https://img.shields.io/npm/l/jsx-ast-utils.svg"
          alt="license">
   </a>
   <a href='https://coveralls.io/github/evcohen/jsx-ast-utils?branch=master'>
     <img src='https://coveralls.io/repos/github/evcohen/jsx-ast-utils/badge.svg?branch=master' alt='Coverage Status' />
+  </a>
+  <a href='https://npmjs.org/package/jsx-ast-utils'>
+    <img src='https://img.shields.io/npm/dt/jsx-ast-utils.svg'
+    alt='Total npm downloads' />
   </a>
 </p>
 
@@ -22,7 +30,7 @@ $ npm i jsx-ast-utils --save
 ```
 
 ## Usage
-This is a utility module to evaluate AST objects for JSX syntax. This can be super useful when writing linting rules for JSX code. It was originally in the code for [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y), however I thought it could be useful to be extracted and maintained separately so you could write new interesting rules to statically analyze JSX.
+This is a utility module to evaluate AST objects for JSX syntax. This can be super useful when writing linting rules for JSX code. It was originally in the code for [jsx-ast-utils](https://github.com/evcohen/jsx-ast-utils), however I thought it could be useful to be extracted and maintained separately so you could write new interesting rules to statically analyze JSX.
 
 ### ESLint example
 ```js
