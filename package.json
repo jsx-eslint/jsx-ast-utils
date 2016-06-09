@@ -39,5 +39,8 @@
     "type": "git",
     "url": "https://github.com/evcohen/jsx-ast-utils"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "object-assign": "^4.1.0"
+  }
 }

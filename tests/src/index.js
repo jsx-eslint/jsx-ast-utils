@@ -5,6 +5,7 @@ import fs from 'fs';
 import path from 'path';
 
 const src = fs.readdirSync(path.resolve(__dirname, '../../src'))
+  .filter(f => f.indexOf('.js') >= 0)
   .map(f => path.basename(f, '.js'));
 
 describe('main export file tests', () => {
