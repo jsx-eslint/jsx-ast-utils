@@ -20,3 +20,131 @@ AST utility module for statically analyzing JSX.
 ```sh
 $ npm i jsx-ast-utils --save
 ```
+
+## Usage
+This is a utility module to evaluate AST objects for JSX syntax. This can be super useful when writing linting rules for JSX code. It was originally in the code for [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y), however I thought it could be useful to be extracted and maintained separately so you could write new interesting rules to statically analyze JSX.
+
+### ESLint example
+```js
+import { hasProp } from `jsx-ast-utils`;
+
+module.exports = context => ({
+  JSXOpeningElement: node => {
+    const onChange = hasProp(node.attributes, 'onChange');
+
+    if (onChange) {
+      context.report({
+        node,
+        message: `No onChange!`
+      });
+    }
+  }
+});
+```
+
+## API
+### AST Resources
+1. [JSX spec](https://github.com/facebook/jsx/blob/master/AST.md)
+2. [JS spec](https://github.com/estree/estree/blob/master/spec.md)
+
+### hasProp
+```js
+hasProp(props, prop, options);
+```
+Returns boolean indicating whether an prop exists as an attribute on a JSX element node.
+
+#### Props
+Object - The attributes on the visited node. (Usually `node.attributes`).
+#### Prop
+String - A string representation of the prop you want to check for existence.
+#### Options
+Object - An object representing options for existence checking
+  1. `ignoreCase` - automatically set to `true`.
+  2. `spreadStrict` - automatically set to `true`. This means if spread operator exists in
+     props, it will assume the prop you are looking for is not in the spread.
+     Example: `<div {...props} />` looking for specific prop here will return false if `spreadStrict` is `true`.
+
+<hr />
+### hasAnyProp
+```js
+hasAnyProp(props, prop, options);
+```
+Returns a boolean indicating if **any** of props in `prop` argument exist on the node.
+
+#### Props
+Object - The attributes on the visited node. (Usually `node.attributes`).
+#### Prop
+Array<String> - An array of strings representing the props you want to check for existence.
+#### Options
+Object - An object representing options for existence checking
+  1. `ignoreCase` - automatically set to `true`.
+  2. `spreadStrict` - automatically set to `true`. This means if spread operator exists in
+     props, it will assume the prop you are looking for is not in the spread.
+     Example: `<div {...props} />` looking for specific prop here will return false if `spreadStrict` is `true`.
+
+<hr />
+### hasEveryProp
+```js
+hasEveryProp(props, prop, options);
+```
+Returns a boolean indicating if **all** of props in `prop` argument exist on the node.
+
+#### Props
+Object - The attributes on the visited node. (Usually `node.attributes`).
+#### Prop
+Array<String> - An array of strings representing the props you want to check for existence.
+#### Options
+Object - An object representing options for existence checking
+ 1. `ignoreCase` - automatically set to `true`.
+ 2. `spreadStrict` - automatically set to `true`. This means if spread operator exists in
+    props, it will assume the prop you are looking for is not in the spread.
+    Example: `<div {...props} />` looking for specific prop here will return false if `spreadStrict` is `true`.
+
+<hr />
+### getProp
+```js
+getProp(props, prop, options);
+```
+Returns the JSXAttribute itself or undefined, indicating the prop is not present on the JSXOpeningElement.
+
+#### Props
+Object - The attributes on the visited node. (Usually `node.attributes`).
+#### Prop
+String - A string representation of the prop you want to check for existence.
+#### Options
+Object - An object representing options for existence checking
+  1. `ignoreCase` - automatically set to `true`.
+
+<hr />
+### elementType
+```js
+elementType(node)
+```
+Returns the tagName associated with a JSXElement.
+
+#### Node
+Object - The visited JSXElement node object.
+
+<hr />
+### getPropValue
+```js
+getPropValue(prop);
+```
+Returns the value of a given attribute. Different types of attributes have their associated values in different properties on the object.
+
+This function should return the most *closely* associated value with the intention of the JSX.
+
+### Prop
+Object - The JSXAttribute collected by AST parser.
+
+<hr />
+### getLiteralPropValue
+```js
+getLiteralPropValue(prop);
+```
+Returns the value of a given attribute. Different types of attributes have their associated values in different properties on the object.
+
+This function should return a value only if we can extract a literal value from its attribute (i.e. values that have generic types in JavaScript - strings, numbers, booleans, etc.)
+
+### Prop
+Object - The JSXAttribute collected by AST parser.
