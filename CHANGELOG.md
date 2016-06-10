@@ -1,3 +1,9 @@
+1.1.0 / 2016-06-10
+==================
+- [new] Support for namespaced element names.
+- [new] Add `propName` to API to get correct name for prop.
+
+
 1.0.1 / 2016-06-10
 ==================
 - [fix] Return actual reserved words instead of string representations of them.

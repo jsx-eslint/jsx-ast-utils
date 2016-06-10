@@ -156,3 +156,13 @@ This function should return a value only if we can extract a literal value from 
 
 #### Prop
 Object - The JSXAttribute collected by AST parser.
+
+<hr />
+### propName
+```js
+propName(prop);
+```
+Returns the name associated with a JSXAttribute. For example, given `<div foo="bar" />` and the JSXAttribute for `foo`, this will return the string `"foo"`.
+
+#### Prop
+Object - The JSXAttribute collected by AST parser.
