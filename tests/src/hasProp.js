@@ -3,7 +3,7 @@ import assert from 'assert';
 import { getOpeningElement } from '../helper';
 import hasProp, { hasAnyProp, hasEveryProp } from '../../src/hasProp';
 
-describe('hasProp tests', () => {
+describe('hasProp', () => {
   it('should export a function', () => {
     const expected = 'function';
     const actual = typeof hasProp;

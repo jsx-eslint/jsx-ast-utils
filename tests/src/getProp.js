@@ -3,7 +3,7 @@ import assert from 'assert';
 import { getOpeningElement } from '../helper';
 import getProp from '../../src/getProp';
 
-describe('getProp tests', () => {
+describe('getProp', () => {
   it('should export a function', () => {
     const expected = 'function';
     const actual = typeof getProp;

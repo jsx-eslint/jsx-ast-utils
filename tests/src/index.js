@@ -8,7 +8,7 @@ const src = fs.readdirSync(path.resolve(__dirname, '../../src'))
   .filter(f => f.indexOf('.js') >= 0)
   .map(f => path.basename(f, '.js'));
 
-describe('main export file tests', () => {
+describe('main export', () => {
   it('should export an object', () => {
     const expected = 'object';
     const actual = typeof core;

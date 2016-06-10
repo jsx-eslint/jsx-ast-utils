@@ -1,16 +1,9 @@
 /* eslint-env mocha */
 import assert from 'assert';
-import { getOpeningElement } from '../helper';
-import getProp from '../../src/getProp';
+import { extractProp } from '../helper';
 import getPropValue from '../../src/getPropValue';
 
-function extractProp(code, prop = 'foo') {
-  const node = getOpeningElement(code);
-  const { attributes: props } = node;
-  return getProp(props, prop);
-}
-
-describe('getPropValue tests', () => {
+describe('getPropValue', () => {
   it('should export a function', () => {
     const expected = 'function';
     const actual = typeof getPropValue;
@@ -25,7 +18,7 @@ describe('getPropValue tests', () => {
     assert.equal(expected, actual);
   });
 
-  describe('Null tests', () => {
+  describe('Null', () => {
     it('should return true when no value is given', () => {
       const prop = extractProp('<div foo />');
 
@@ -36,7 +29,7 @@ describe('getPropValue tests', () => {
     });
   });
 
-  describe('Literal tests', () => {
+  describe('Literal', () => {
     it('should return correct string if value is a string', () => {
       const prop = extractProp('<div foo="bar" />');
 
@@ -83,7 +76,7 @@ describe('getPropValue tests', () => {
     });
   });
 
-  describe('JSXElement tests', () => {
+  describe('JSXElement', () => {
     it('should return correct representation of JSX element as a string', () => {
       const prop = extractProp('<div foo=<bar /> />');
 
@@ -94,7 +87,7 @@ describe('getPropValue tests', () => {
     });
   });
 
-  describe('Identifier tests', () => {
+  describe('Identifier', () => {
     it('should return string representation of variable identifier', () => {
       const prop = extractProp('<div foo={bar} />');
 
@@ -177,7 +170,7 @@ describe('getPropValue tests', () => {
     });
   });
 
-  describe('Template literal tests', () => {
+  describe('Template literal', () => {
     it('should return template literal with vars wrapped in curly braces', () => {
       const prop = extractProp('<div foo={`bar ${baz}`} />');
 
@@ -197,7 +190,7 @@ describe('getPropValue tests', () => {
     });
   });
 
-  describe('Arrow function expression tests', () => {
+  describe('Arrow function expression', () => {
     it('should return a function', () => {
       const prop = extractProp('<div foo={ () => { return "bar"; }} />');
 
@@ -211,7 +204,7 @@ describe('getPropValue tests', () => {
     });
   });
 
-  describe('Function expression tests', () => {
+  describe('Function expression', () => {
     it('should return a function', () => {
       const prop = extractProp('<div foo={ function() { return "bar"; } } />');
 
@@ -225,7 +218,7 @@ describe('getPropValue tests', () => {
     });
   });
 
-  describe('Logical expression tests', () => {
+  describe('Logical expression', () => {
     it('should correctly infer result of && logical expression based on derived values', () => {
       const prop = extractProp('<div foo={bar && baz} />');
 
@@ -272,7 +265,7 @@ describe('getPropValue tests', () => {
     });
   });
 
-  describe('Member expression tests', () => {
+  describe('Member expression', () => {
     it('should return string representation of form `object.property`', () => {
       const prop = extractProp('<div foo={bar.baz} />');
 
@@ -283,7 +276,7 @@ describe('getPropValue tests', () => {
     });
   });
 
-  describe('Call expression tests', () => {
+  describe('Call expression', () => {
     it('should return string representation of callee', () => {
       const prop = extractProp('<div foo={bar()} />');
 
@@ -303,7 +296,7 @@ describe('getPropValue tests', () => {
     });
   });
 
-  describe('Unary expression tests', () => {
+  describe('Unary expression', () => {
     it('should correctly evaluate an expression that prefixes with -', () => {
       const prop = extractProp('<div foo={-bar} />');
 
@@ -389,7 +382,7 @@ describe('getPropValue tests', () => {
     });
   });
 
-  describe('This expression tests', () => {
+  describe('This expression', () => {
     it('should return string value `this`', () => {
       const prop = extractProp('<div foo={this} />');
 
@@ -400,7 +393,7 @@ describe('getPropValue tests', () => {
     });
   });
 
-  describe('Conditional expression tests', () => {
+  describe('Conditional expression', () => {
     it('should evaluate the conditional based on the derived values correctly', () => {
       const prop = extractProp('<div foo={bar ? baz : bam} />');
 
@@ -429,7 +422,7 @@ describe('getPropValue tests', () => {
     });
   });
 
-  describe('Binary expression tests', () => {
+  describe('Binary expression', () => {
     it('should evaluate the `==` operator correctly', () => {
       const trueProp = extractProp('<div foo={1 == "1"} />');
       const falseProp = extractProp('<div foo={1 == bar} />');
@@ -645,7 +638,7 @@ describe('getPropValue tests', () => {
     });
   });
 
-  describe('Object expression tests', () => {
+  describe('Object expression', () => {
     it('should evaluate to a correct representation of the object in props', () => {
       const prop = extractProp('<div foo={ { bar: "baz" } } />');
 
@@ -656,7 +649,7 @@ describe('getPropValue tests', () => {
     });
   });
 
-  describe('New expression tests', () => {
+  describe('New expression', () => {
     it('should return a new empty object', () => {
       const prop = extractProp('<div foo={new Bar()} />');
 

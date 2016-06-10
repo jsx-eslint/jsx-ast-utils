@@ -1,3 +1,5 @@
+import propName from './propName';
+
 const DEFAULT_OPTIONS = {
   ignoreCase: true,
 };
@@ -9,7 +11,7 @@ const DEFAULT_OPTIONS = {
  */
 export default function getProp(props = [], prop = '', options = DEFAULT_OPTIONS) {
   let nodeProp = undefined;
-  const propName = options.ignoreCase ? prop.toUpperCase() : prop;
+  const propToFind = options.ignoreCase ? prop.toUpperCase() : prop;
 
   const hasProp = props.some(attribute => {
     // If the props contain a spread prop, then skip.
@@ -18,10 +20,10 @@ export default function getProp(props = [], prop = '', options = DEFAULT_OPTIONS
     }
 
     const currentProp = options.ignoreCase ?
-      attribute.name.name.toUpperCase() :
-      attribute.name.name;
+      propName(attribute).toUpperCase() :
+      propName(attribute);
 
-    if (propName === currentProp) {
+    if (propToFind === currentProp) {
       nodeProp = attribute;
       return true;
     }

@@ -48,4 +48,14 @@ describe('elementType tests', () => {
 
     assert.equal(expected, actual);
   });
+
+  it('should return the correct type of the custom object element given its node object', () => {
+    const code = '<UX:Slider />';
+    const node = getOpeningElement(code);
+
+    const expected = 'UX:Slider';
+    const actual = elementType(node);
+
+    assert.equal(expected, actual);
+  });
 });

@@ -2,6 +2,7 @@ import hasProp, { hasAnyProp, hasEveryProp } from './hasProp';
 import elementType from './elementType';
 import getProp from './getProp';
 import getPropValue, { getLiteralPropValue } from './getPropValue';
+import propName from './propName';
 
 module.exports = {
   hasProp,
@@ -11,4 +12,5 @@ module.exports = {
   getProp,
   getPropValue,
   getLiteralPropValue,
+  propName,
 };
