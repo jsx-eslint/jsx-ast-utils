@@ -1,0 +1,8 @@
+1.0.1 / 2016-06-10
+==================
+- [fix] Return actual reserved words instead of string representations of them.
+
+
+1.0.0 / 2016-06-09
+==================
+- Initial stable release
