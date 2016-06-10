@@ -30,7 +30,7 @@ $ npm i jsx-ast-utils --save
 ```
 
 ## Usage
-This is a utility module to evaluate AST objects for JSX syntax. This can be super useful when writing linting rules for JSX code. It was originally in the code for [jsx-ast-utils](https://github.com/evcohen/jsx-ast-utils), however I thought it could be useful to be extracted and maintained separately so you could write new interesting rules to statically analyze JSX.
+This is a utility module to evaluate AST objects for JSX syntax. This can be super useful when writing linting rules for JSX code. It was originally in the code for [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y), however I thought it could be useful to be extracted and maintained separately so **you** could write new interesting rules to statically analyze JSX.
 
 ### ESLint example
 ```js
