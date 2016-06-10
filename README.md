@@ -142,7 +142,7 @@ Returns the value of a given attribute. Different types of attributes have their
 
 This function should return the most *closely* associated value with the intention of the JSX.
 
-### Prop
+#### Prop
 Object - The JSXAttribute collected by AST parser.
 
 <hr />
@@ -154,5 +154,5 @@ Returns the value of a given attribute. Different types of attributes have their
 
 This function should return a value only if we can extract a literal value from its attribute (i.e. values that have generic types in JavaScript - strings, numbers, booleans, etc.)
 
-### Prop
+#### Prop
 Object - The JSXAttribute collected by AST parser.
