@@ -1,4 +1,13 @@
-// TODO: return reserved words in their real form (i.e. String resolves to String not "String").
+const JS_RESERVED = {
+  Array,
+  Date,
+  Infinity,
+  Math,
+  Number,
+  Object,
+  String,
+  undefined,
+};
 
 /**
  * Extractor function for a Identifier type value node.
@@ -11,5 +20,9 @@
 export default function extractValueFromIdentifier(value) {
   const { name } = value;
 
-  return name === 'undefined' ? undefined : name;
+  if (JS_RESERVED.hasOwnProperty(name)) {
+    return JS_RESERVED[name];
+  }
+
+  return name;
 }

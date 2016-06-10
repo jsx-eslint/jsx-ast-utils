@@ -60,11 +60,10 @@ export default function extractValueFromBinaryExpression(value) {
         return false;
       }
     case 'instanceof':
-      try {
-        return leftVal instanceof rightVal;
-      } catch (err) {
+      if (typeof rightVal !== 'function') {
         return false;
       }
+      return leftVal instanceof rightVal;
     default:
       return undefined;
   }

@@ -112,6 +112,69 @@ describe('getPropValue tests', () => {
 
       assert.equal(expected, actual);
     });
+
+    it('should return String object when using a reserved JavaScript object', () => {
+      const prop = extractProp('<div foo={String} />');
+
+      const expected = String;
+      const actual = getPropValue(prop);
+
+      assert.equal(expected, actual);
+    });
+
+    it('should return Array object when using a reserved JavaScript object', () => {
+      const prop = extractProp('<div foo={Array} />');
+
+      const expected = Array;
+      const actual = getPropValue(prop);
+
+      assert.equal(expected, actual);
+    });
+
+    it('should return Date object when using a reserved JavaScript object', () => {
+      const prop = extractProp('<div foo={Date} />');
+
+      const expected = Date;
+      const actual = getPropValue(prop);
+
+      assert.equal(expected, actual);
+    });
+
+    it('should return Infinity object when using a reserved JavaScript object', () => {
+      const prop = extractProp('<div foo={Infinity} />');
+
+      const expected = Infinity;
+      const actual = getPropValue(prop);
+
+      assert.equal(expected, actual);
+    });
+
+    it('should return Math object when using a reserved JavaScript object', () => {
+      const prop = extractProp('<div foo={Math} />');
+
+      const expected = Math;
+      const actual = getPropValue(prop);
+
+      assert.equal(expected, actual);
+    });
+
+    it('should return Number object when using a reserved JavaScript object', () => {
+      const prop = extractProp('<div foo={Number} />');
+
+      const expected = Number;
+      const actual = getPropValue(prop);
+
+      assert.equal(expected, actual);
+    });
+
+    it('should return Object object when using a reserved JavaScript object', () => {
+      const prop = extractProp('<div foo={Object} />');
+
+      const expected = Object;
+      const actual = getPropValue(prop);
+
+      assert.equal(expected, actual);
+    });
   });
 
   describe('Template literal tests', () => {
@@ -564,6 +627,15 @@ describe('getPropValue tests', () => {
     });
 
     it('should evaluate the `instanceof` operator correctly', () => {
+      const prop = extractProp('<div foo={{} instanceof Object} />');
+
+      const expected = true;
+      const actual = getPropValue(prop);
+
+      assert.equal(expected, actual);
+    });
+
+    it('should evaluate the `instanceof` operator when right side is not a function', () => {
       const prop = extractProp('<div foo={"bar" instanceof Baz} />');
 
       const expected = false;
