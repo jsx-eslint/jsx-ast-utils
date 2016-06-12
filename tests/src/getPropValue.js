@@ -18,6 +18,19 @@ describe('getPropValue', () => {
     assert.equal(expected, actual);
   });
 
+  it('should throw error when trying to get value from unknown node type', () => {
+    const prop = {
+      type: 'JSXAttribute',
+      value: {
+        type: 'JSXExpressionContainer',
+      },
+    };
+
+    assert.throws(() => {
+      getPropValue(prop);
+    }, Error);
+  });
+
   describe('Null', () => {
     it('should return true when no value is given', () => {
       const prop = extractProp('<div foo />');
