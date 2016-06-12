@@ -188,6 +188,24 @@ describe('getPropValue', () => {
 
       assert.equal(expected, actual);
     });
+
+    it('should return template literal with expression type wrapped in curly braces', () => {
+      const prop = extractProp('<div foo={`bar ${baz()}`} />');
+
+      const expected = 'bar {CallExpression}';
+      const actual = getPropValue(prop);
+
+      assert.equal(expected, actual);
+    });
+
+    it('should ignore non-expressions in the template literal', () => {
+      const prop = extractProp('<div foo={`bar ${<baz />}`} />');
+
+      const expected = 'bar ';
+      const actual = getPropValue(prop);
+
+      assert.equal(expected, actual);
+    });
   });
 
   describe('Arrow function expression', () => {
