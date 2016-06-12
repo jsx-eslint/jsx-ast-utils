@@ -1,3 +1,8 @@
+1.1.1 / 2016-06-12
+==================
+- [fix] Better support for expressions in `TemplateLiteral` extraction.
+
+
 1.1.0 / 2016-06-10
 ==================
 - [new] Support for namespaced element names.
