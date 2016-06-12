@@ -1,3 +1,5 @@
+import propName from './propName';
+
 const DEFAULT_OPTIONS = {
   spreadStrict: true,
   ignoreCase: true,
@@ -8,7 +10,7 @@ const DEFAULT_OPTIONS = {
  * property of a JSX element node.
  */
 export default function hasProp(props = [], prop = '', options = DEFAULT_OPTIONS) {
-  const propName = options.ignoreCase ? prop.toUpperCase() : prop;
+  const propToCheck = options.ignoreCase ? prop.toUpperCase() : prop;
 
   return props.some(attribute => {
     // If the props contain a spread prop, then refer to strict param.
@@ -17,10 +19,10 @@ export default function hasProp(props = [], prop = '', options = DEFAULT_OPTIONS
     }
 
     const currentProp = options.ignoreCase ?
-      attribute.name.name.toUpperCase() :
-      attribute.name.name;
+      propName(attribute).toUpperCase() :
+      propName(attribute);
 
-    return propName === currentProp;
+    return propToCheck === currentProp;
   });
 }
 
