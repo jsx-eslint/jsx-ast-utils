@@ -1,3 +1,8 @@
+1.2.0 / 2016-06-15
+==================
+- [new] Export functions from root so they can be imported like the following: `require('jsx-ast-utils/{function}')`.
+
+
 1.1.1 / 2016-06-12
 ==================
 - [fix] Better support for expressions in `TemplateLiteral` extraction.
