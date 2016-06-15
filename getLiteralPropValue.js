@@ -1,1 +1,1 @@
-module.exports = require('./src').getLiteralPropValue;
+module.exports = require('./lib').getLiteralPropValue;

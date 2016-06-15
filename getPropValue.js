@@ -1,1 +1,1 @@
-module.exports = require('./src').getPropValue;
+module.exports = require('./lib').getPropValue;

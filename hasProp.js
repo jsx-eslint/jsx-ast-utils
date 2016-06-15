@@ -1,1 +1,1 @@
-module.exports = require('./src').hasProp;
+module.exports = require('./lib').hasProp;

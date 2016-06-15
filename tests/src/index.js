@@ -25,10 +25,15 @@ describe('main export', () => {
     });
 
     it(`should export ${f} from root`, () => {
-      assert.equal(
-        core[f],
-        require(path.join('../../', f)) // eslint-disable-line global-require
-      );
+      const fn = require(path.join('../../', f)); // eslint-disable-line global-require
+      const expected = 'function';
+      const actual = typeof fn;
+
+      const expectedName = f;
+      const actualName = fn.name;
+
+      assert.equal(expected, actual);
+      assert.equal(expectedName, actualName);
     });
   });
 });
