@@ -20,7 +20,14 @@ describe('main export', () => {
     it(`should export ${f}`, () => {
       assert.equal(
         core[f],
-        require(path.join('../../src/', f)).default // eslint-disable-line
+        require(path.join('../../src/', f)).default // eslint-disable-line global-require
+      );
+    });
+
+    it(`should export ${f} from root`, () => {
+      assert.equal(
+        core[f],
+        require(path.join('../../', f)) // eslint-disable-line global-require
       );
     });
   });

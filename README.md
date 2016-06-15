@@ -34,7 +34,10 @@ This is a utility module to evaluate AST objects for JSX syntax. This can be sup
 
 ### ESLint example
 ```js
-import { hasProp } from `jsx-ast-utils`;
+import { hasProp } from 'jsx-ast-utils';
+// OR: var hasProp = require('jsx-ast-utils').hasProp;
+// OR: const hasProp = require('jsx-ast-utils/hasProp');
+// OR: import hasProp from 'jsx-ast-utils/hasProp';
 
 module.exports = context => ({
   JSXOpeningElement: node => {
