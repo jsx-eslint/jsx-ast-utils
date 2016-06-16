@@ -1,1 +1,1 @@
-module.exports = require('./lib').getLiteralPropValue;
+module.exports = require('./lib').getLiteralPropValue; // eslint-disable-line import/no-unresolved

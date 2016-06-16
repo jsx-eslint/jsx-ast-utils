@@ -1,1 +1,1 @@
-module.exports = require('./lib').hasEveryProp;
+module.exports = require('./lib').hasEveryProp; // eslint-disable-line import/no-unresolved
