@@ -1,6 +1,7 @@
 import assign from 'object-assign';
 import Literal from '../Literal';
 import Identifier from './Identifier';
+import TaggedTemplateExpression from './TaggedTemplateExpression';
 import TemplateLiteral from './TemplateLiteral';
 import FunctionExpression from './FunctionExpression';
 import LogicalExpression from './LogicalExpression';
@@ -17,6 +18,7 @@ import NewExpression from './NewExpression';
 const TYPES = {
   Identifier,
   Literal,
+  TaggedTemplateExpression,
   TemplateLiteral,
   ArrowFunctionExpression: FunctionExpression,
   FunctionExpression,

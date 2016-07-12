@@ -149,6 +149,26 @@ describe('getLiteralPropValue', () => {
     });
   });
 
+  describe('Tagged Template literal', () => {
+    it('should return template literal with vars wrapped in curly braces', () => {
+      const prop = extractProp('<div foo={noop`bar ${baz}`} />');
+
+      const expected = 'bar {baz}';
+      const actual = getLiteralPropValue(prop);
+
+      assert.equal(expected, actual);
+    });
+
+    it('should drop variables in template literals that are literally undefined', () => {
+      const prop = extractProp('<div foo={noop`bar ${undefined}`} />');
+
+      const expected = 'bar ';
+      const actual = getLiteralPropValue(prop);
+
+      assert.equal(expected, actual);
+    });
+  });
+
   describe('Arrow function expression', () => {
     it('should return null', () => {
       const prop = extractProp('<div foo={ () => { return "bar"; }} />');

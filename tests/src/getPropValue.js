@@ -221,6 +221,44 @@ describe('getPropValue', () => {
     });
   });
 
+  describe('Tagged Template literal', () => {
+    it('should return template literal with vars wrapped in curly braces', () => {
+      const prop = extractProp('<div foo={noop`bar ${baz}`} />');
+
+      const expected = 'bar {baz}';
+      const actual = getPropValue(prop);
+
+      assert.equal(expected, actual);
+    });
+
+    it('should drop variables in template literals that are literally undefined', () => {
+      const prop = extractProp('<div foo={noop`bar ${undefined}`} />');
+
+      const expected = 'bar ';
+      const actual = getPropValue(prop);
+
+      assert.equal(expected, actual);
+    });
+
+    it('should return template literal with expression type wrapped in curly braces', () => {
+      const prop = extractProp('<div foo={noop`bar ${baz()}`} />');
+
+      const expected = 'bar {CallExpression}';
+      const actual = getPropValue(prop);
+
+      assert.equal(expected, actual);
+    });
+
+    it('should ignore non-expressions in the template literal', () => {
+      const prop = extractProp('<div foo={noop`bar ${<baz />}`} />');
+
+      const expected = 'bar ';
+      const actual = getPropValue(prop);
+
+      assert.equal(expected, actual);
+    });
+  });
+
   describe('Arrow function expression', () => {
     it('should return a function', () => {
       const prop = extractProp('<div foo={ () => { return "bar"; }} />');
