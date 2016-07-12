@@ -1,3 +1,8 @@
+1.3.0 / 2016-07-12
+==================
+- [new] Add support for `TaggedTemplateExpression`.
+
+
 1.2.1 / 2016-06-15
 ==================
 - [fix] Point to `lib` instead of `src` for root exports.
