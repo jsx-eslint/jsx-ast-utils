@@ -1,3 +1,8 @@
+1.3.1 / 2016-07-13
+==================
+- [fix] Add `JSXElement` to expression types to handle recursively extracting prop value.
+
+
 1.3.0 / 2016-07-12
 ==================
 - [new] Add support for `TaggedTemplateExpression`.

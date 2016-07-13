@@ -1,5 +1,6 @@
 import assign from 'object-assign';
 import Literal from '../Literal';
+import JSXElement from '../JSXElement';
 import Identifier from './Identifier';
 import TaggedTemplateExpression from './TaggedTemplateExpression';
 import TemplateLiteral from './TemplateLiteral';
@@ -18,6 +19,7 @@ import NewExpression from './NewExpression';
 const TYPES = {
   Identifier,
   Literal,
+  JSXElement,
   TaggedTemplateExpression,
   TemplateLiteral,
   ArrowFunctionExpression: FunctionExpression,
@@ -48,6 +50,7 @@ const LITERAL_TYPES = assign({}, TYPES, {
     const isUndefined = TYPES.Identifier.call(undefined, value) === undefined;
     return isUndefined ? undefined : null;
   },
+  JSXElement: noop,
   ArrowFunctionExpression: noop,
   FunctionExpression: noop,
   LogicalExpression: noop,
