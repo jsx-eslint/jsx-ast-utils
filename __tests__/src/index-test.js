@@ -1,8 +1,8 @@
 /* eslint-env mocha */
-import assert from 'assert';
-import core from '../../src/index';
 import fs from 'fs';
 import path from 'path';
+import assert from 'assert';
+import core from '../../src/index';
 
 const src = fs.readdirSync(path.resolve(__dirname, '../../src'))
   .filter(f => f.indexOf('.js') >= 0)
@@ -16,18 +16,18 @@ describe('main export', () => {
     assert.equal(expected, actual);
   });
 
-  src.filter(f => f !== 'index').forEach(f => {
+  src.filter(f => f !== 'index').forEach((f) => {
     it(`should export ${f}`, () => {
       assert.equal(
         core[f],
-        require(path.join('../../src/', f)).default // eslint-disable-line global-require
+        require(path.join('../../src/', f)).default // eslint-disable-line
       );
     });
 
     it(`should export ${f} from root`, () => {
       const file = `${f}.js`;
       const expected = true;
-      const actual = fs.statSync(path.join(__dirname, file)).isFile();
+      const actual = fs.statSync(path.join(path.resolve('.'), file)).isFile();
 
       assert.equal(expected, actual);
     });

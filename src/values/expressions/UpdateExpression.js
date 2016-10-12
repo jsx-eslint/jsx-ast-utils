@@ -15,9 +15,9 @@ export default function extractValueFromUpdateExpression(value) {
 
   switch (operator) {
     case '++':
-      return prefix ? ++val : val++;
+      return prefix ? ++val : val++; // eslint-disable-line no-plusplus
     case '--':
-      return prefix ? --val : val--;
+      return prefix ? --val : val--; // eslint-disable-line no-plusplus
     default:
       return undefined;
   }

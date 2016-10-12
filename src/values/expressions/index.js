@@ -41,14 +41,14 @@ const noop = () => null;
 
 // Composition map of types to their extractor functions to handle literals.
 const LITERAL_TYPES = assign({}, TYPES, {
-  Literal: value => {
+  Literal: (value) => {
     const extractedVal = TYPES.Literal.call(undefined, value);
     const isNull = extractedVal === null;
     // This will be convention for attributes that have null
     // value explicitly defined (<div prop={null} /> maps to 'null').
     return isNull ? 'null' : extractedVal;
   },
-  Identifier: value => {
+  Identifier: (value) => {
     const isUndefined = TYPES.Identifier.call(undefined, value) === undefined;
     return isUndefined ? undefined : null;
   },
@@ -58,11 +58,11 @@ const LITERAL_TYPES = assign({}, TYPES, {
   LogicalExpression: noop,
   MemberExpression: noop,
   CallExpression: noop,
-  UnaryExpression: value => {
+  UnaryExpression: (value) => {
     const extractedVal = TYPES.UnaryExpression.call(undefined, value);
     return extractedVal === undefined ? null : extractedVal;
   },
-  UpdateExpression: value => {
+  UpdateExpression: (value) => {
     const extractedVal = TYPES.UpdateExpression.call(undefined, value);
     return extractedVal === undefined ? null : extractedVal;
   },
