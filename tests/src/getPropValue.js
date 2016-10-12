@@ -451,6 +451,46 @@ describe('getPropValue', () => {
     });
   });
 
+  describe('Update expression', () => {
+    it('should correctly evaluate an expression that prefixes with ++', () => {
+      const prop = extractProp('<div foo={++bar} />');
+
+      // ++"bar" => NaN
+      const expected = true;
+      const actual = isNaN(getPropValue(prop));
+
+      assert.equal(expected, actual);
+    });
+
+    it('should correctly evaluate an expression that prefixes with --', () => {
+      const prop = extractProp('<div foo={--bar} />');
+
+      const expected = true;
+      const actual = isNaN(getPropValue(prop));
+
+      assert.equal(expected, actual);
+    });
+
+    it('should correctly evaluate an expression that suffixes with ++', () => {
+      const prop = extractProp('<div foo={bar++} />');
+
+      // "bar"++ => NaN
+      const expected = true;
+      const actual = isNaN(getPropValue(prop));
+
+      assert.equal(expected, actual);
+    });
+
+    it('should correctly evaluate an expression that suffixes with --', () => {
+      const prop = extractProp('<div foo={bar--} />');
+
+      const expected = true;
+      const actual = isNaN(getPropValue(prop));
+
+      assert.equal(expected, actual);
+    });
+  });
+
   describe('This expression', () => {
     it('should return string value `this`', () => {
       const prop = extractProp('<div foo={this} />');

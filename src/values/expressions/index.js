@@ -14,6 +14,7 @@ import ConditionalExpression from './ConditionalExpression';
 import BinaryExpression from './BinaryExpression';
 import ObjectExpression from './ObjectExpression';
 import NewExpression from './NewExpression';
+import UpdateExpression from './UpdateExpression';
 
 // Composition map of types to their extractor functions.
 const TYPES = {
@@ -33,6 +34,7 @@ const TYPES = {
   BinaryExpression,
   ObjectExpression,
   NewExpression,
+  UpdateExpression,
 };
 
 const noop = () => null;
@@ -58,6 +60,10 @@ const LITERAL_TYPES = assign({}, TYPES, {
   CallExpression: noop,
   UnaryExpression: value => {
     const extractedVal = TYPES.UnaryExpression.call(undefined, value);
+    return extractedVal === undefined ? null : extractedVal;
+  },
+  UpdateExpression: value => {
+    const extractedVal = TYPES.UpdateExpression.call(undefined, value);
     return extractedVal === undefined ? null : extractedVal;
   },
   ThisExpression: noop,
