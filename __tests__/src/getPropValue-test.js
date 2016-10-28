@@ -780,4 +780,13 @@ describe('getPropValue', () => {
       assert.deepEqual(expected, actual);
     });
   });
+
+  it('should return an empty array provided an empty array in props', () => {
+    const prop = extractProp('<div foo={[]} />');
+
+    const expected = [];
+    const actual = getPropValue(prop);
+
+    assert.deepEqual(expected, actual);
+  });
 });
