@@ -1,3 +1,8 @@
+1.3.3 / 2016-10-28
+==================
+- [fix] Add support for `ArrayExpression`.
+
+
 1.3.2 / 2016-10-11
 ==================
 - [fix] Add support for `UpdateExpression`.
