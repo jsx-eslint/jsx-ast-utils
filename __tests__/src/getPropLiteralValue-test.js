@@ -416,4 +416,24 @@ describe('getLiteralPropValue', () => {
       assert.deepEqual(expected, actual);
     });
   });
+
+  describe('Array expression', () => {
+    it('should evaluate to correct representation of the the array in props', () => {
+      const prop = extractProp('<div foo={["bar", 42, null]} />');
+
+      const expected = ['bar', 42];
+      const actual = getLiteralPropValue(prop);
+
+      assert.deepEqual(expected, actual);
+    });
+  });
+
+  it('should return an empty array provided an empty array in props', () => {
+    const prop = extractProp('<div foo={[]} />');
+
+    const expected = [];
+    const actual = getLiteralPropValue(prop);
+
+    assert.deepEqual(expected, actual);
+  });
 });

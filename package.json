@@ -10,7 +10,8 @@
     "lint": "eslint  --config .eslintrc .",
     "lint:fix": "npm run lint -- --fix",
     "pretest": "npm run lint",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "test:watch": "npm test -- --watch"
   },
   "devDependencies": {
     "babel-cli": "^6.14.0",
