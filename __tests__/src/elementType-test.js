@@ -69,4 +69,14 @@ describe('elementType tests', () => {
 
       assert.equal(expected, actual);
     });
+
+  it('should return this.Component when given its node object', () => {
+    const code = '<this.Component />';
+    const node = getOpeningElement(code);
+
+    const expected = 'this.Component';
+    const actual = elementType(node);
+
+    assert.equal(expected, actual);
+  });
 });
