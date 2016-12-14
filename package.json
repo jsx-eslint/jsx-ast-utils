@@ -14,6 +14,7 @@
     "test:watch": "npm test -- --watch"
   },
   "devDependencies": {
+    "acorn-jsx": "^3.0.1",
     "babel-cli": "^6.14.0",
     "babel-core": "^6.14.0",
     "babel-eslint": "^7.0.0",
@@ -43,7 +44,6 @@
   },
   "license": "MIT",
   "dependencies": {
-    "acorn-jsx": "^3.0.1",
     "object-assign": "^4.1.0"
   },
   "jest": {
