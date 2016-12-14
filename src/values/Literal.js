@@ -7,9 +7,10 @@
 export default function extractValueFromLiteral(value) {
   const { value: extractedValue } = value;
 
-  if (extractedValue === 'true') {
+  const normalizedStringValue = typeof extractedValue === 'string' && extractedValue.toLowerCase();
+  if (normalizedStringValue === 'true') {
     return true;
-  } else if (extractedValue === 'false') {
+  } else if (normalizedStringValue === 'false') {
     return false;
   }
 

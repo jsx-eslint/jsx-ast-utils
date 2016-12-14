@@ -80,8 +80,26 @@ describe('getLiteralPropValue', () => {
       assert.equal(expected, actual);
     });
 
+    it('should convert "TrUE" to boolean type', () => {
+      const prop = extractProp('<div foo="TrUE" />');
+
+      const expected = true;
+      const actual = getLiteralPropValue(prop);
+
+      assert.equal(expected, actual);
+    });
+
     it('should convert "false" to boolean type', () => {
       const prop = extractProp('<div foo="false" />');
+
+      const expected = false;
+      const actual = getLiteralPropValue(prop);
+
+      assert.equal(expected, actual);
+    });
+
+    it('should convert "FaLsE" to boolean type', () => {
+      const prop = extractProp('<div foo="FaLsE" />');
 
       const expected = false;
       const actual = getLiteralPropValue(prop);
