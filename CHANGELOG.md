@@ -1,3 +1,8 @@
+1.3.5 / 2016-12-14
+==================
+- [fix] Normalize literals "true" and "false" before converting to boolean in Literal prop value extractor.
+
+
 1.3.4 / 2016-11-15
 ==================
 - [fix] Recursively resolve JSXMemberExpression names for elementType. (i.e. `<Component.Render.Me />`). Fixes [#9](https://github.com/evcohen/jsx-ast-utils/issues/9)
