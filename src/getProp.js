@@ -10,10 +10,9 @@ const DEFAULT_OPTIONS = {
  *
  */
 export default function getProp(props = [], prop = '', options = DEFAULT_OPTIONS) {
-  let nodeProp;
   const propToFind = options.ignoreCase ? prop.toUpperCase() : prop;
 
-  const hasProp = props.some((attribute) => {
+  return props.find((attribute) => {
     // If the props contain a spread prop, then skip.
     if (attribute.type === 'JSXSpreadAttribute') {
       return false;
@@ -23,13 +22,6 @@ export default function getProp(props = [], prop = '', options = DEFAULT_OPTIONS
       propName(attribute).toUpperCase() :
       propName(attribute);
 
-    if (propToFind === currentProp) {
-      nodeProp = attribute;
-      return true;
-    }
-
-    return false;
+    return propToFind === currentProp;
   });
-
-  return hasProp ? nodeProp : undefined;
 }
