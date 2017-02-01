@@ -1,0 +1,102 @@
+/* eslint-env mocha */
+import assert from 'assert';
+import eventHandlers, { eventHandlersByType } from '../../src/eventHandlers';
+
+describe('eventHandlers', function() {
+  it('should contain a list of common JSX event handlers', function() {
+    assert(
+      [
+        'onCopy',
+        'onCut',
+        'onPaste',
+        'onCompositionEnd',
+        'onCompositionStart',
+        'onCompositionUpdate',
+        'onKeyDown',
+        'onKeyPress',
+        'onKeyUp',
+        'onFocus',
+        'onBlur',
+        'onChange',
+        'onInput',
+        'onSubmit',
+        'onClick',
+        'onContextMenu',
+        'onDblClick',
+        'onDoubleClick',
+        'onDrag',
+        'onDragEnd',
+        'onDragEnter',
+        'onDragExit',
+        'onDragLeave',
+        'onDragOver',
+        'onDragStart',
+        'onDrop',
+        'onMouseDown',
+        'onMouseEnter',
+        'onMouseLeave',
+        'onMouseMove',
+        'onMouseOut',
+        'onMouseOver',
+        'onMouseUp',
+        'onSelect',
+        'onTouchCancel',
+        'onTouchEnd',
+        'onTouchMove',
+        'onTouchStart',
+        'onScroll',
+        'onWheel',
+        'onAbort',
+        'onCanPlay',
+        'onCanPlayThrough',
+        'onDurationChange',
+        'onEmptied',
+        'onEncrypted',
+        'onEnded',
+        'onError',
+        'onLoadedData',
+        'onLoadedMetadata',
+        'onLoadStart',
+        'onPause',
+        'onPlay',
+        'onPlaying',
+        'onProgress',
+        'onRateChange',
+        'onSeeked',
+        'onSeeking',
+        'onStalled',
+        'onSuspend',
+        'onTimeUpdate',
+        'onVolumeChange',
+        'onWaiting',
+        'onLoad',
+        'onError',
+        'onAnimationStart',
+        'onAnimationEnd',
+        'onAnimationIteration',
+        'onTransitionEnd',
+      ].every(handlerName => eventHandlers.includes(handlerName))
+    );
+  });
+});
+
+describe('eventHandlersByType', function() {
+  it('should be keyed by type', function () {
+    assert([
+      'clipboard',
+      'composition',
+      'keyboard',
+      'focus',
+      'form',
+      'mouse',
+      'selection',
+      'touch',
+      'ui',
+      'wheel',
+      'media',
+      'image',
+      'animation',
+      'transition',
+    ].every(type => !!eventHandlersByType[type]))
+  });
+});
