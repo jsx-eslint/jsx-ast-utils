@@ -100,15 +100,14 @@ const eventHandlersByType = {
   ],
   transition: [
     'onTransitionEnd',
-  ]
+  ],
 };
 
 const eventHandlers = Object.keys(eventHandlersByType).reduce(
-  (accumulator, type) => {
-    accumulator = accumulator.concat(eventHandlersByType[type]);
-    return accumulator;
-  }, []);
-
+  (accumulator, type) => accumulator.concat(eventHandlersByType[type]),
+  [],
+);
+console.warn(eventHandlers, eventHandlersByType);
 export default eventHandlers;
 
 export { eventHandlersByType };

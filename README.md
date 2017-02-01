@@ -169,3 +169,111 @@ Returns the name associated with a JSXAttribute. For example, given `<div foo="b
 
 #### Prop
 Object - The JSXAttribute collected by AST parser.
+
+### eventHandlers
+
+```js
+console.log(eventHandlers);
+/*
+[
+  'onCopy',
+  'onCut',
+  'onPaste',
+  'onCompositionEnd',
+  'onCompositionStart',
+  'onCompositionUpdate',
+  'onKeyDown',
+  'onKeyPress',
+  'onKeyUp',
+  'onFocus',
+  'onBlur',
+  'onChange',
+  'onInput',
+  'onSubmit',
+  'onClick',
+  'onContextMenu',
+  'onDblClick',
+  'onDoubleClick',
+  'onDrag',
+  'onDragEnd',
+  'onDragEnter',
+  'onDragExit',
+  'onDragLeave',
+  'onDragOver',
+  'onDragStart',
+  'onDrop',
+  'onMouseDown',
+  'onMouseEnter',
+  'onMouseLeave',
+  'onMouseMove',
+  'onMouseOut',
+  'onMouseOver',
+  'onMouseUp',
+  'onSelect',
+  'onTouchCancel',
+  'onTouchEnd',
+  'onTouchMove',
+  'onTouchStart',
+  'onScroll',
+  'onWheel',
+  'onAbort',
+  'onCanPlay',
+  'onCanPlayThrough',
+  'onDurationChange',
+  'onEmptied',
+  'onEncrypted',
+  'onEnded',
+  'onError',
+  'onLoadedData',
+  'onLoadedMetadata',
+  'onLoadStart',
+  'onPause',
+  'onPlay',
+  'onPlaying',
+  'onProgress',
+  'onRateChange',
+  'onSeeked',
+  'onSeeking',
+  'onStalled',
+  'onSuspend',
+  'onTimeUpdate',
+  'onVolumeChange',
+  'onWaiting',
+  'onLoad',
+  'onError',
+  'onAnimationStart',
+  'onAnimationEnd',
+  'onAnimationIteration',
+  'onTransitionEnd',
+]
+*/
+```
+
+Contains a flat list of common event handler props used in JSX to attach behaviors
+to DOM events.
+
+#### eventHandlersByType
+
+The same list as `eventHandlers`, grouped into types.
+
+```js
+console.log(eventHandlersByType);
+/*
+{
+  clipboard: [ 'onCopy', 'onCut', 'onPaste' ],
+  composition: [ 'onCompositionEnd', 'onCompositionStart', 'onCompositionUpdate' ],
+  keyboard: [ 'onKeyDown', 'onKeyPress', 'onKeyUp' ],
+  focus: [ 'onFocus', 'onBlur' ],
+  form: [ 'onChange', 'onInput', 'onSubmit' ],
+  mouse: [ 'onClick', 'onContextMenu', 'onDblClick', 'onDoubleClick', 'onDrag', 'onDragEnd', 'onDragEnter', 'onDragExit', 'onDragLeave', 'onDragOver', 'onDragStart', 'onDrop', 'onMouseDown', 'onMouseEnter', 'onMouseLeave', 'onMouseMove', 'onMouseOut', 'onMouseOver', 'onMouseUp' ],
+  selection: [ 'onSelect' ],
+  touch: [ 'onTouchCancel', 'onTouchEnd', 'onTouchMove', 'onTouchStart' ],
+  ui: [ 'onScroll' ],
+  wheel: [ 'onWheel' ],
+  media: [ 'onAbort', 'onCanPlay', 'onCanPlayThrough', 'onDurationChange', 'onEmptied', 'onEncrypted', 'onEnded', 'onError', 'onLoadedData', 'onLoadedMetadata', 'onLoadStart', 'onPause', 'onPlay', 'onPlaying', 'onProgress', 'onRateChange', 'onSeeked', 'onSeeking', 'onStalled', 'onSuspend', 'onTimeUpdate', 'onVolumeChange', 'onWaiting' ],
+  image: [ 'onLoad', 'onError' ],
+  animation: [ 'onAnimationStart', 'onAnimationEnd', 'onAnimationIteration' ],
+  transition: [ 'onTransitionEnd' ],
+}
+*/
+```
