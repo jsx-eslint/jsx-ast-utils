@@ -1,3 +1,8 @@
+1.4.0 / 2017-02-02
+==================
+- [new] Add eventHandlers and eventHandlersByType to API. These are the event names for DOM elements on JSX-using libraries such as React, inferno, and preact.
+
+
 1.3.5 / 2016-12-14
 ==================
 - [fix] Normalize literals "true" and "false" before converting to boolean in Literal prop value extractor.
