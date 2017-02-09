@@ -1,4 +1,3 @@
-import assign from 'object-assign';
 import Literal from './Literal';
 import JSXElement from './JSXElement';
 import JSXExpressionContainer, { extractLiteral } from './expressions';
@@ -11,7 +10,7 @@ const TYPES = {
 };
 
 // Composition map of types to their extractor functions to handle literals.
-const LITERAL_TYPES = assign({}, TYPES, {
+const LITERAL_TYPES = Object.assign({}, TYPES, {
   JSXElement: () => null,
   JSXExpressionContainer: extractLiteral,
 });

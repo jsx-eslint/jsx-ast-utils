@@ -1,4 +1,3 @@
-import assign from 'object-assign';
 import Literal from '../Literal';
 import JSXElement from '../JSXElement';
 import Identifier from './Identifier';
@@ -42,7 +41,7 @@ const TYPES = {
 const noop = () => null;
 
 // Composition map of types to their extractor functions to handle literals.
-const LITERAL_TYPES = assign({}, TYPES, {
+const LITERAL_TYPES = Object.assign({}, TYPES, {
   Literal: (value) => {
     const extractedVal = TYPES.Literal.call(undefined, value);
     const isNull = extractedVal === null;

@@ -1,4 +1,3 @@
-import assign from 'object-assign';
 import getValue from './index';
 
 /**
@@ -9,7 +8,7 @@ import getValue from './index';
  */
 export default function extractValueFromObjectExpression(value) {
   return value.properties.reduce((obj, property) => {
-    const object = assign({}, obj);
+    const object = Object.assign({}, obj);
     object[getValue(property.key)] = getValue(property.value);
     return object;
   }, {});
