@@ -43,9 +43,6 @@
     "url": "https://github.com/evcohen/jsx-ast-utils"
   },
   "license": "MIT",
-  "dependencies": {
-    "object-assign": "^4.1.0"
-  },
   "jest": {
     "coverageReporters": [
       "lcov"
