@@ -76,7 +76,9 @@ Object - An object representing options for existence checking
      Example: `<div {...props} />` looking for specific prop here will return false if `spreadStrict` is `true`.
 
 <hr />
+
 ### hasAnyProp
+
 ```js
 hasAnyProp(props, prop, options);
 ```
@@ -94,7 +96,9 @@ Object - An object representing options for existence checking
      Example: `<div {...props} />` looking for specific prop here will return false if `spreadStrict` is `true`.
 
 <hr />
+
 ### hasEveryProp
+
 ```js
 hasEveryProp(props, prop, options);
 ```
@@ -112,7 +116,9 @@ Object - An object representing options for existence checking
     Example: `<div {...props} />` looking for specific prop here will return false if `spreadStrict` is `true`.
 
 <hr />
+
 ### getProp
+
 ```js
 getProp(props, prop, options);
 ```
@@ -137,7 +143,9 @@ Returns the tagName associated with a JSXElement.
 Object - The visited JSXElement node object.
 
 <hr />
+
 ### getPropValue
+
 ```js
 getPropValue(prop);
 ```
@@ -149,7 +157,9 @@ This function should return the most *closely* associated value with the intenti
 Object - The JSXAttribute collected by AST parser.
 
 <hr />
+
 ### getLiteralPropValue
+
 ```js
 getLiteralPropValue(prop);
 ```
@@ -161,7 +171,9 @@ This function should return a value only if we can extract a literal value from 
 Object - The JSXAttribute collected by AST parser.
 
 <hr />
+
 ### propName
+
 ```js
 propName(prop);
 ```
