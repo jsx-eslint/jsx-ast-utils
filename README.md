@@ -133,6 +133,7 @@ Object - An object representing options for existence checking
   1. `ignoreCase` - automatically set to `true`.
 
 <hr />
+
 ### elementType
 ```js
 elementType(node)
