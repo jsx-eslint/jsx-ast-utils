@@ -7,16 +7,11 @@
  * this should return "".
  */
 export default function extractValueFromTemplateLiteral(value) {
-  const {
-    quasis,
-    expressions,
-  } = value;
+  const { quasis, expressions } = value;
   const partitions = quasis.concat(expressions);
 
   return partitions.sort((a, b) => a.start - b.start).reduce((raw, part) => {
-    const {
-      type,
-    } = part;
+    const { type } = part;
     if (type === 'TemplateElement') {
       return raw + part.value.raw;
     } else if (type === 'Identifier') {

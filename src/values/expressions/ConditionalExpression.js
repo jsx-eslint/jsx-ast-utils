@@ -7,11 +7,7 @@ import getValue from './index';
  * @returns - The extracted value converted to correct type.
  */
 export default function extractValueFromConditionalExpression(value) {
-  const {
-    test,
-    alternate,
-    consequent,
-  } = value;
+  const { test, alternate, consequent } = value;
 
   return getValue(test) ? getValue(consequent) : getValue(alternate);
 }

@@ -1,33 +1,17 @@
-
 /**
  * Common event handlers for JSX element event binding.
  */
 
 const eventHandlersByType = {
-  clipboard: [
-    'onCopy',
-    'onCut',
-    'onPaste',
-  ],
+  clipboard: ['onCopy', 'onCut', 'onPaste'],
   composition: [
     'onCompositionEnd',
     'onCompositionStart',
     'onCompositionUpdate',
   ],
-  keyboard: [
-    'onKeyDown',
-    'onKeyPress',
-    'onKeyUp',
-  ],
-  focus: [
-    'onFocus',
-    'onBlur',
-  ],
-  form: [
-    'onChange',
-    'onInput',
-    'onSubmit',
-  ],
+  keyboard: ['onKeyDown', 'onKeyPress', 'onKeyUp'],
+  focus: ['onFocus', 'onBlur'],
+  form: ['onChange', 'onInput', 'onSubmit'],
   mouse: [
     'onClick',
     'onContextMenu',
@@ -49,21 +33,10 @@ const eventHandlersByType = {
     'onMouseOver',
     'onMouseUp',
   ],
-  selection: [
-    'onSelect',
-  ],
-  touch: [
-    'onTouchCancel',
-    'onTouchEnd',
-    'onTouchMove',
-    'onTouchStart',
-  ],
-  ui: [
-    'onScroll',
-  ],
-  wheel: [
-    'onWheel',
-  ],
+  selection: ['onSelect'],
+  touch: ['onTouchCancel', 'onTouchEnd', 'onTouchMove', 'onTouchStart'],
+  ui: ['onScroll'],
+  wheel: ['onWheel'],
   media: [
     'onAbort',
     'onCanPlay',
@@ -89,18 +62,9 @@ const eventHandlersByType = {
     'onVolumeChange',
     'onWaiting',
   ],
-  image: [
-    'onLoad',
-    'onError',
-  ],
-  animation: [
-    'onAnimationStart',
-    'onAnimationEnd',
-    'onAnimationIteration',
-  ],
-  transition: [
-    'onTransitionEnd',
-  ],
+  image: ['onLoad', 'onError'],
+  animation: ['onAnimationStart', 'onAnimationEnd', 'onAnimationIteration'],
+  transition: ['onTransitionEnd'],
 };
 
 const eventHandlers = Object.keys(eventHandlersByType).reduce(
