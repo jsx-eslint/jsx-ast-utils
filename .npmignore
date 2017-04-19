@@ -4,3 +4,7 @@ npm-debug.log
 coverage
 .gitignore
 .DS_Store
+.npmignore
+__tests__
+.travis.yml
+yarn.lock
