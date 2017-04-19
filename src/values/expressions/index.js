@@ -94,7 +94,16 @@ const errorMessage = expression =>
  */
 export default function extract(value) {
   // Value will not have the expression property when we recurse.
-  const expression = value.expression || value;
+  // The type for expression on ArrowFunctionExpression is a boolean.
+  let expression;
+  if (
+    typeof value.expression !== 'boolean'
+    && value.expression
+  ) {
+    expression = value.expression;
+  } else {
+    expression = value;
+  }
   const { type } = expression;
 
   if (TYPES[type] === undefined) {
