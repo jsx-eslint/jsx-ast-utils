@@ -1,3 +1,8 @@
+1.4.1 / 2017-04-19
+==================
+- [fix] - Fixing fatal throw in `getPropValue` for `ArrowFunctionExpression`
+
+
 1.4.0 / 2017-02-02
 ==================
 - [new] Add eventHandlers and eventHandlersByType to API. These are the event names for DOM elements on JSX-using libraries such as React, inferno, and preact.
