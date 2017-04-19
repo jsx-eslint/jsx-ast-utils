@@ -9,7 +9,11 @@ const DEFAULT_OPTIONS = {
  * is not present on the JSXOpeningElement.
  *
  */
-export default function getProp(props = [], prop = '', options = DEFAULT_OPTIONS) {
+export default function getProp(
+  props = [],
+  prop = '',
+  options = DEFAULT_OPTIONS,
+) {
   const propToFind = options.ignoreCase ? prop.toUpperCase() : prop;
 
   return props.find((attribute) => {
@@ -18,9 +22,9 @@ export default function getProp(props = [], prop = '', options = DEFAULT_OPTIONS
       return false;
     }
 
-    const currentProp = options.ignoreCase ?
-      propName(attribute).toUpperCase() :
-      propName(attribute);
+    const currentProp = options.ignoreCase
+      ? propName(attribute).toUpperCase()
+      : propName(attribute);
 
     return propToFind === currentProp;
   });

@@ -12,11 +12,15 @@ describe('propName', () => {
   });
 
   it('should throw an error if the argument is missing', () => {
-    assert.throws(() => { propName(); }, Error);
+    assert.throws(() => {
+      propName();
+    }, Error);
   });
 
   it('should throw an error if the argument not a JSX node', () => {
-    assert.throws(() => { propName({ a: 'foo' }); }, Error);
+    assert.throws(() => {
+      propName({ a: 'foo' });
+    }, Error);
   });
 
   it('should return correct name for normal prop', () => {

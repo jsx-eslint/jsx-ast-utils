@@ -5,13 +5,13 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "rimraf lib && babel src --out-dir lib",
-    "prepublish": "npm run lint && npm run test && npm run build",
     "coveralls": "cat ./reports/lcov.info | coveralls",
-    "lint": "eslint  --config .eslintrc .",
     "lint:fix": "npm run lint -- --fix",
-    "pretest": "npm run lint",
-    "test": "jest --coverage",
-    "test:watch": "npm test -- --watch"
+    "lint": "eslint  --config .eslintrc .",
+    "precommit": "lint-staged",
+    "prepublish": "npm run lint && npm run test && npm run build",
+    "test:watch": "npm test -- --watch",
+    "test": "jest --coverage"
   },
   "devDependencies": {
     "acorn-jsx": "^3.0.1",
@@ -25,7 +25,10 @@
     "eslint": "^3.12.1",
     "eslint-config-airbnb-base": "^11.1.0",
     "eslint-plugin-import": "^2.2.0",
+    "husky": "^0.13.3",
     "jest": "^19.0.0",
+    "lint-staged": "^3.4.0",
+    "prettier": "^1.1.0",
     "rimraf": "^2.5.2"
   },
   "engines": {
@@ -51,6 +54,13 @@
     "testPathIgnorePatterns": [
       "/node_modules/",
       "helper.js"
+    ]
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "lint:fix",
+      "git add"
     ]
   }
 }

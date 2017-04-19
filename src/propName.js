@@ -3,7 +3,9 @@
  */
 export default function propName(prop = {}) {
   if (!prop.type || prop.type !== 'JSXAttribute') {
-    throw new Error('The prop must be a JSXAttribute collected by the AST parser.');
+    throw new Error(
+      'The prop must be a JSXAttribute collected by the AST parser.',
+    );
   }
 
   switch (prop.name.type) {

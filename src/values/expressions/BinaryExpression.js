@@ -1,6 +1,5 @@
 import getValue from './index';
 
-
 /**
  * Extractor function for a BinaryExpression type value node.
  * A binary expression has a left and right side separated by an operator

@@ -4,7 +4,8 @@ import path from 'path';
 import assert from 'assert';
 import core from '../../src/index';
 
-const src = fs.readdirSync(path.resolve(__dirname, '../../src'))
+const src = fs
+  .readdirSync(path.resolve(__dirname, '../../src'))
   .filter(f => f.indexOf('.js') >= 0)
   .map(f => path.basename(f, '.js'));
 
@@ -20,7 +21,7 @@ describe('main export', () => {
     it(`should export ${f}`, () => {
       assert.equal(
         core[f],
-        require(path.join('../../src/', f)).default // eslint-disable-line
+        require(path.join("../../src/", f)).default // eslint-disable-line
       );
     });
 
