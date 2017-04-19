@@ -272,6 +272,17 @@ describe('getPropValue', () => {
       // For code coverage ¯\_(ツ)_/¯
       actual();
     });
+    it('should handle ArrowFunctionExpression as conditional consequent', () => {
+      const prop = extractProp('<div foo={ (true) ? () => null : () => ({})} />');
+
+      const expected = 'function';
+      const actual = getPropValue(prop);
+
+      assert.equal(expected, typeof actual);
+
+      // For code coverage ¯\_(ツ)_/¯
+      actual();
+    });
   });
 
   describe('Function expression', () => {
