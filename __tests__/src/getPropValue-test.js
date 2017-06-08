@@ -800,4 +800,24 @@ describe('getPropValue', () => {
 
     assert.deepEqual(expected, actual);
   });
+
+  describe('Bind expression', () => {
+    it('should return string representation of bind function call when object is null', () => {
+      const prop = extractProp('<div foo={::this.handleClick} />');
+
+      const expected = 'this.handleClick.bind(this)';
+      const actual = getPropValue(prop);
+
+      assert.deepEqual(expected, actual);
+    });
+
+    it('should return string representation of bind function call when object is not null', () => {
+      const prop = extractProp('<div foo={foo::bar} />');
+
+      const expected = 'bar.bind(foo)';
+      const actual = getPropValue(prop);
+
+      assert.deepEqual(expected, actual);
+    });
+  });
 });

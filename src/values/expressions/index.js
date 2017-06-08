@@ -15,6 +15,7 @@ import ObjectExpression from './ObjectExpression';
 import NewExpression from './NewExpression';
 import UpdateExpression from './UpdateExpression';
 import ArrayExpression from './ArrayExpression';
+import BindExpression from './BindExpression';
 
 // Composition map of types to their extractor functions.
 const TYPES = {
@@ -36,6 +37,7 @@ const TYPES = {
   NewExpression,
   UpdateExpression,
   ArrayExpression,
+  BindExpression,
 };
 
 const noop = () => null;
@@ -76,6 +78,7 @@ const LITERAL_TYPES = Object.assign({}, TYPES, {
     const extractedVal = TYPES.ArrayExpression.call(undefined, value);
     return extractedVal.filter(val => val !== null);
   },
+  BindExpression: noop,
 });
 
 const errorMessage = expression =>
