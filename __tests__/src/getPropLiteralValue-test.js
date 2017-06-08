@@ -158,10 +158,10 @@ describe('getLiteralPropValue', () => {
       assert.equal(expected, actual);
     });
 
-    it('should drop variables in template literals that are literally undefined', () => {
+    it('should return string "undefined" for expressions that evaluate to undefined', () => {
       const prop = extractProp('<div foo={`bar ${undefined}`} />');
 
-      const expected = 'bar ';
+      const expected = 'bar undefined';
       const actual = getLiteralPropValue(prop);
 
       assert.equal(expected, actual);
@@ -178,10 +178,10 @@ describe('getLiteralPropValue', () => {
       assert.equal(expected, actual);
     });
 
-    it('should drop variables in template literals that are literally undefined', () => {
+    it('should return string "undefined" for expressions that evaluate to undefined', () => {
       const prop = extractProp('<div foo={noop`bar ${undefined}`} />');
 
-      const expected = 'bar ';
+      const expected = 'bar undefined';
       const actual = getLiteralPropValue(prop);
 
       assert.equal(expected, actual);

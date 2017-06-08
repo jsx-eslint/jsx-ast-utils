@@ -4,7 +4,7 @@
  * prop. For instance `This is a ${prop}` will return 'This is a {prop}'.
  *
  * If the template literal builds to undefined (`${undefined}`), then
- * this should return "".
+ * this should return "undefined".
  */
 export default function extractValueFromTemplateLiteral(value) {
   const {
@@ -20,7 +20,7 @@ export default function extractValueFromTemplateLiteral(value) {
     if (type === 'TemplateElement') {
       return raw + part.value.raw;
     } else if (type === 'Identifier') {
-      return part.name === 'undefined' ? raw : `${raw}{${part.name}}`;
+      return part.name === 'undefined' ? `${raw}${part.name}` : `${raw}{${part.name}}`;
     } else if (type.indexOf('Expression') > -1) {
       return `${raw}{${type}}`;
     }
