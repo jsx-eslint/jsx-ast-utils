@@ -1,3 +1,8 @@
+2.0.0 / 2017-07-07
+==================
+- [breaking] Remove undefined return from `propName` so it always returns a value.
+
+
 1.4.1 / 2017-04-19
 ==================
 - [fix] - Fixing fatal throw in `getPropValue` for `ArrowFunctionExpression`
