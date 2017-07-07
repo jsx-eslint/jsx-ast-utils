@@ -52,5 +52,8 @@
       "/node_modules/",
       "helper.js"
     ]
+  },
+  "dependencies": {
+    "array-includes": "^3.0.3"
   }
 }

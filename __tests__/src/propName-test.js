@@ -36,19 +36,4 @@ describe('propName', () => {
 
     assert.equal(expected, actual);
   });
-
-  // Note: this shouldn't happen, but safe guard anyway.
-  it('should return undefined if prop name is not JSXIdentifier or JSXNamespacedName', () => {
-    const prop = {
-      type: 'JSXAttribute',
-      name: {
-        type: 'Literal',
-      },
-    };
-
-    const expected = undefined;
-    const actual = propName(prop);
-
-    assert.equal(expected, actual);
-  });
 });
