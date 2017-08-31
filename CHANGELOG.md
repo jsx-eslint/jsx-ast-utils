@@ -1,3 +1,8 @@
+2.0.1 / 2017-08-31
+==================
+- [fix] Add support for BindExpression
+
+
 2.0.0 / 2017-07-07
 ==================
 - [breaking] Remove undefined return from `propName` so it always returns a value.
