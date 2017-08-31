@@ -454,4 +454,15 @@ describe('getLiteralPropValue', () => {
 
     assert.deepEqual(expected, actual);
   });
+
+  describe('Bind expression', () => {
+    it('should return null', () => {
+      const prop = extractProp('<div foo={::this.handleClick} />');
+
+      const expected = null;
+      const actual = getLiteralPropValue(prop);
+
+      assert.deepEqual(expected, actual);
+    });
+  });
 });

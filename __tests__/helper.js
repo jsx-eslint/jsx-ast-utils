@@ -1,15 +1,15 @@
 import getProp from '../src/getProp';
 
-const acorn = require('acorn-jsx');
+const parser = require('babylon');
 
 function parse(code) {
-  return acorn.parse(code, {
-    plugins: { jsx: true },
+  return parser.parse(code, {
+    plugins: ['jsx', 'functionBind', 'estree'],
   });
 }
 
 export function getOpeningElement(code) {
-  return parse(code).body[0].expression.openingElement;
+  return parse(code).program.body[0].expression.openingElement;
 }
 
 export function extractProp(code, prop = 'foo') {
