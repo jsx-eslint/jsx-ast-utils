@@ -10,12 +10,16 @@ import getValue from './index';
  * @returns - The extracted value converted to correct type.
  */
 export default function extractValueFromBindExpression(value) {
+  // console.log(value);
   const callee = getValue(value.callee);
 
   // If value.object === null, the callee must be a MemberExpression.
   // https://github.com/babel/babylon/blob/master/ast/spec.md#bindexpression
   const object = value.object === null ? getValue(value.callee.object) : getValue(value.object);
 
+  if (value.object && value.object.property) {
+    return `${object}.${callee}.bind(${object})`;
+  }
 
   return `${callee}.bind(${object})`;
 }
