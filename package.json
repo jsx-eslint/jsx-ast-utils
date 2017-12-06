@@ -1,5 +1,5 @@
 {
-  "name": "jsx-ast-utils",
+  "name": "@coursera/jsx-ast-utils",
   "version": "2.0.2-jnwng-0",
   "description": "AST utility module for statically analyzing JSX",
   "main": "lib/index.js",
