@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 /* eslint no-template-curly-in-string: 0 */
 import assert from 'assert';
-import { extractProp } from '../helper';
+import { extractProp, changePlugins } from '../helper';
 import getPropValue from '../../src/getPropValue';
 
 describe('getPropValue', () => {
@@ -104,6 +104,16 @@ describe('getPropValue', () => {
   describe('Identifier', () => {
     it('should return string representation of variable identifier', () => {
       const prop = extractProp('<div foo={bar} />');
+
+      const expected = 'bar';
+      const actual = getPropValue(prop);
+
+      assert.equal(expected, actual);
+    });
+
+    it('should work with a Typescript non-null assertion', () => {
+      changePlugins(pls => [...pls, 'typescript']);
+      const prop = extractProp('<div foo={bar!} />');
 
       const expected = 'bar';
       const actual = getPropValue(prop);
