@@ -22,7 +22,6 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^9.0.0",
     "babel-jest": "^23.4.2",
-    "babylon": "^6.17.2",
     "coveralls": "^2.11.8",
     "eslint": "^3.12.1",
     "eslint-config-airbnb-base": "^11.1.0",
