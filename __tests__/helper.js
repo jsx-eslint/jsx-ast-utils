@@ -1,6 +1,6 @@
 import getProp from '../src/getProp';
 
-const parser = require('babylon');
+const parser = require('@babel/parser');
 
 function parse(code) {
   return parser.parse(code, {
