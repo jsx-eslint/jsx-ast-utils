@@ -880,7 +880,7 @@ describe('getPropValue', () => {
     beforeEach(() => {
       changePlugins(pls => [...pls, 'typescript']);
     });
-    
+
     it('should return string representation of variable identifier wrapped in a Typescript non-null assertion', () => {
       const prop = extractProp('<div foo={bar!} />');
 
@@ -889,7 +889,7 @@ describe('getPropValue', () => {
 
       assert.equal(expected, actual);
     });
-    
+
     it('should return string representation of variable identifier wrapped in a deep Typescript non-null assertion', () => {
       const prop = extractProp('<div foo={(bar!)!} />');
 
