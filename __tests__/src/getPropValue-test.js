@@ -111,16 +111,6 @@ describe('getPropValue', () => {
       assert.equal(expected, actual);
     });
 
-    it('should work with a Typescript non-null assertion', () => {
-      changePlugins(pls => [...pls, 'typescript']);
-      const prop = extractProp('<div foo={bar!} />');
-
-      const expected = 'bar';
-      const actual = getPropValue(prop);
-
-      assert.equal(expected, actual);
-    });
-
     it('should return undefined when identifier is literally `undefined`', () => {
       const prop = extractProp('<div foo={undefined} />');
 
@@ -883,6 +873,40 @@ describe('getPropValue', () => {
 
       assert.deepEqual(expected, actual);
       assert.deepEqual(otherExpected, otherActual);
+    });
+  });
+
+  describe('Typescript', () => {
+    beforeEach(() => {
+      changePlugins(pls => [...pls, 'typescript']);
+    });
+    
+    it('should return string representation of variable identifier wrapped in a Typescript non-null assertion', () => {
+      const prop = extractProp('<div foo={bar!} />');
+
+      const expected = 'bar';
+      const actual = getPropValue(prop);
+
+      assert.equal(expected, actual);
+    });
+    
+    it('should return string representation of variable identifier wrapped in a deep Typescript non-null assertion', () => {
+      const prop = extractProp('<div foo={(bar!)!} />');
+
+      const expected = 'bar';
+      const actual = getPropValue(prop);
+
+      assert.equal(expected, actual);
+    });
+
+    it('should return string representation of variable identifier wrapped in a Typescript type coercion', () => {
+      changePlugins(pls => [...pls, 'typescript']);
+      const prop = extractProp('<div foo={bar as any} />');
+
+      const expected = 'bar';
+      const actual = getPropValue(prop);
+
+      assert.equal(expected, actual);
     });
   });
 });

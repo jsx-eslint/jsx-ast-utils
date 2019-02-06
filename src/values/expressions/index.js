@@ -72,7 +72,7 @@ export default function extract(value) {
   }
   let { type } = expression;
 
-  if (type === 'TSNonNullExpression') {
+  while (type === 'TSNonNullExpression' || type === 'TSAsExpression') {
     expression = expression.expression;
     type = expression.type;
   }
