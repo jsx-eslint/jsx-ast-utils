@@ -1,6 +1,10 @@
 import getProp from '../src/getProp';
 
-const parser = require('@babel/parser');
+const nodeVersion = parseInt(process.version.match(/^v(\d+)\./)[1], 10);
+
+export const fallbackToBabylon = nodeVersion < 6;
+
+const parser = fallbackToBabylon ? require('babylon') : require('@babel/parser');
 
 const defaultPlugins = ['jsx', 'functionBind', 'estree', 'objectRestSpread', 'optionalChaining'];
 let plugins = [...defaultPlugins];
