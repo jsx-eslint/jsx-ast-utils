@@ -1,4 +1,4 @@
-/* globals beforeEach */
+/* eslint-env jest */
 import getProp from '../src/getProp';
 
 const nodeVersion = parseInt(process.version.match(/^v(\d+)\./)[1], 10);
