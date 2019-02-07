@@ -1,3 +1,4 @@
+/* globals beforeEach */
 import getProp from '../src/getProp';
 
 const nodeVersion = parseInt(process.version.match(/^v(\d+)\./)[1], 10);
@@ -19,11 +20,9 @@ export function changePlugins(pluginOrFn) {
   }
 }
 
-/* eslint-disable */
 beforeEach(() => {
   plugins = [...defaultPlugins];
 });
-/* eslint-enable */
 
 function parse(code) {
   return parser.parse(code, { plugins });
