@@ -9,7 +9,13 @@ import getValue from './index';
 export default function extractValueFromObjectExpression(value) {
   return value.properties.reduce((obj, property) => {
     const object = Object.assign({}, obj);
-    object[getValue(property.key)] = getValue(property.value);
+
+    // The 'ExperimentalSpreadProperty' only has an `argument` property, rather
+    // than a `key` and `value`.
+    const propKey = property.key || property.argument;
+    const propValue = property.value || property.argument;
+
+    object[getValue(propKey)] = getValue(propValue);
     return object;
   }, {});
 }
