@@ -777,6 +777,15 @@ describe('getPropValue', () => {
 
       assert.deepEqual(expected, actual);
     });
+
+    it('should evaluate to a correct representation of the object with identifier in props', () => {
+      const prop = extractProp('<div foo={{ identifier }} />');
+
+      const expected = { identifier: 'identifier' };
+      const actual = getPropValue(prop);
+
+      assert.deepEqual(expected, actual);
+    });
   });
 
   describe('New expression', () => {
