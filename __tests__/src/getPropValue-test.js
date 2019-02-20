@@ -768,6 +768,15 @@ describe('getPropValue', () => {
 
       assert.deepEqual(expected, actual);
     });
+
+    it('should evaluate to a correct representation of the object with spread in props', () => {
+      const prop = extractProp('<div foo={{ ...spread }} />');
+
+      const expected = { spread: 'spread' };
+      const actual = getPropValue(prop);
+
+      assert.deepEqual(expected, actual);
+    });
   });
 
   describe('New expression', () => {
