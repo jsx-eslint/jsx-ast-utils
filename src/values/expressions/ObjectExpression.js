@@ -9,7 +9,13 @@ import getValue from './index';
 export default function extractValueFromObjectExpression(value) {
   return value.properties.reduce((obj, property) => {
     const object = Object.assign({}, obj);
-    object[getValue(property.key)] = getValue(property.value);
+    if (property.type === 'SpreadProperty') {
+      if (property.argument.type === 'ObjectExpression') {
+        return Object.assign(object, extractValueFromObjectExpression(property.argument));
+      }
+    } else {
+      object[getValue(property.key)] = getValue(property.value);
+    }
     return object;
   }, {});
 }

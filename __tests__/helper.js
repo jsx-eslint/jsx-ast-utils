@@ -4,7 +4,7 @@ const parser = require('babylon');
 
 function parse(code) {
   return parser.parse(code, {
-    plugins: ['jsx', 'functionBind', 'estree'],
+    plugins: ['jsx', 'functionBind', 'estree', 'objectRestSpread'],
   });
 }
 
