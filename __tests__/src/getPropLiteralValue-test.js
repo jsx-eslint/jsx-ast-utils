@@ -258,7 +258,7 @@ describe('getLiteralPropValue', () => {
 
       // -"bar" => NaN
       const expected = true;
-      const actual = isNaN(getLiteralPropValue(prop));
+      const actual = Number.isNaN(getLiteralPropValue(prop));
 
       assert.equal(expected, actual);
     });
@@ -277,7 +277,7 @@ describe('getLiteralPropValue', () => {
 
       // +"bar" => NaN
       const expected = true;
-      const actual = isNaN(getLiteralPropValue(prop));
+      const actual = Number.isNaN(getLiteralPropValue(prop));
 
       assert.equal(expected, actual);
     });
@@ -344,7 +344,7 @@ describe('getLiteralPropValue', () => {
 
       // ++"bar" => NaN
       const expected = true;
-      const actual = isNaN(getLiteralPropValue(prop));
+      const actual = Number.isNaN(getLiteralPropValue(prop));
 
       assert.equal(expected, actual);
     });
@@ -354,7 +354,7 @@ describe('getLiteralPropValue', () => {
 
       // --"bar" => NaN
       const expected = true;
-      const actual = isNaN(getLiteralPropValue(prop));
+      const actual = Number.isNaN(getLiteralPropValue(prop));
 
       assert.equal(expected, actual);
     });
@@ -364,7 +364,7 @@ describe('getLiteralPropValue', () => {
 
       // "bar"++ => NaN
       const expected = true;
-      const actual = isNaN(getLiteralPropValue(prop));
+      const actual = Number.isNaN(getLiteralPropValue(prop));
 
       assert.equal(expected, actual);
     });
@@ -374,7 +374,7 @@ describe('getLiteralPropValue', () => {
 
       // "bar"-- => NaN
       const expected = true;
-      const actual = isNaN(getLiteralPropValue(prop));
+      const actual = Number.isNaN(getLiteralPropValue(prop));
 
       assert.equal(expected, actual);
     });

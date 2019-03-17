@@ -19,9 +19,13 @@ export default function extractValueFromTemplateLiteral(value) {
     } = part;
     if (type === 'TemplateElement') {
       return raw + part.value.raw;
-    } else if (type === 'Identifier') {
+    }
+
+    if (type === 'Identifier') {
       return part.name === 'undefined' ? `${raw}${part.name}` : `${raw}{${part.name}}`;
-    } else if (type.indexOf('Expression') > -1) {
+    }
+
+    if (type.indexOf('Expression') > -1) {
       return `${raw}{${type}}`;
     }
 

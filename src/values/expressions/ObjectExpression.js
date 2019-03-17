@@ -1,5 +1,3 @@
-import getValue from './index';
-
 /**
  * Extractor function for an ObjectExpression type value node.
  * An object expression is using {}.
@@ -7,12 +5,14 @@ import getValue from './index';
  * @returns - a representation of the object
  */
 export default function extractValueFromObjectExpression(value) {
+  // eslint-disable-next-line global-require
+  const getValue = require('./index.js').default;
   return value.properties.reduce((obj, property) => {
     const object = Object.assign({}, obj);
     // Support types: SpreadProperty and ExperimentalSpreadProperty
-    if (/^(?:Experimental)?SpreadProperty$/.test(property.type)) {
+    if (/^(?:Experimental)?Spread(?:Property|Element)$/.test(property.type)) {
       if (property.argument.type === 'ObjectExpression') {
-        return Object.assign(object, extractValueFromObjectExpression(property.argument));
+        return Object.assign(object, extractValueFromObjectExpression(property.argument, getValue));
       }
     } else {
       object[getValue(property.key)] = getValue(property.value);
