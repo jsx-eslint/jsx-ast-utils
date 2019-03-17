@@ -777,6 +777,15 @@ describe('getPropValue', () => {
 
       assert.deepEqual(expected, actual);
     });
+
+    it('should evaluate to a correct representation of the object, ignore spread properties', () => {
+      const prop = extractProp('<div foo={{ pathname: manageRoute, state: {...data}}} />');
+
+      const expected = { pathname: 'manageRoute', state: {} };
+      const actual = getPropValue(prop);
+
+      assert.deepEqual(expected, actual);
+    });
   });
 
   describe('New expression', () => {
