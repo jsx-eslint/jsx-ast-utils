@@ -808,6 +808,15 @@ describe('getPropValue', () => {
 
       assert.deepEqual(expected, actual);
     });
+
+    it('should evaluate to a correct representation of an array with spread elements', () => {
+      const prop = extractProp('<div foo={[...this.props.params, bar]} />');
+
+      const expected = [undefined, 'bar'];
+      const actual = getPropValue(prop);
+
+      assert.deepEqual(expected, actual);
+    });
   });
 
   it('should return an empty array provided an empty array in props', () => {
