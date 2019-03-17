@@ -4,7 +4,13 @@ const parser = require('babylon');
 
 function parse(code) {
   return parser.parse(code, {
-    plugins: ['jsx', 'functionBind', 'estree', 'objectRestSpread'],
+    plugins: [
+      'estree',
+      'functionBind',
+      'jsx',
+      'objectRestSpread',
+      'optionalChaining',
+    ],
   });
 }
 

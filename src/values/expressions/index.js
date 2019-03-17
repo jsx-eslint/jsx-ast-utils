@@ -6,6 +6,7 @@ import TemplateLiteral from './TemplateLiteral';
 import FunctionExpression from './FunctionExpression';
 import LogicalExpression from './LogicalExpression';
 import MemberExpression from './MemberExpression';
+import OptionalMemberExpression from './OptionalMemberExpression';
 import CallExpression from './CallExpression';
 import UnaryExpression from './UnaryExpression';
 import ThisExpression from './ThisExpression';
@@ -29,6 +30,7 @@ const TYPES = {
   FunctionExpression,
   LogicalExpression,
   MemberExpression,
+  OptionalMemberExpression,
   CallExpression,
   UnaryExpression,
   ThisExpression,
@@ -43,6 +45,39 @@ const TYPES = {
 };
 
 const noop = () => null;
+
+const errorMessage = expression => `The prop value with an expression type of ${expression} could not be resolved. Please file issue to get this fixed immediately.`;
+
+/**
+ * This function maps an AST value node
+ * to its correct extractor function for its
+ * given type.
+ *
+ * This will map correctly for *all* possible expression types.
+ *
+ * @param - value - AST Value object with type `JSXExpressionContainer`
+ * @returns The extracted value.
+ */
+export default function extract(value) {
+  // Value will not have the expression property when we recurse.
+  // The type for expression on ArrowFunctionExpression is a boolean.
+  let expression;
+  if (
+    typeof value.expression !== 'boolean'
+    && value.expression
+  ) {
+    expression = value.expression; // eslint-disable-line prefer-destructuring
+  } else {
+    expression = value;
+  }
+  const { type } = expression;
+
+  if (TYPES[type] === undefined) {
+    throw new Error(errorMessage(type));
+  }
+
+  return TYPES[type](expression);
+}
 
 // Composition map of types to their extractor functions to handle literals.
 const LITERAL_TYPES = Object.assign({}, TYPES, {
@@ -62,6 +97,7 @@ const LITERAL_TYPES = Object.assign({}, TYPES, {
   FunctionExpression: noop,
   LogicalExpression: noop,
   MemberExpression: noop,
+  OptionalMemberExpression: noop,
   CallExpression: noop,
   UnaryExpression: (value) => {
     const extractedVal = TYPES.UnaryExpression.call(undefined, value);
@@ -83,41 +119,6 @@ const LITERAL_TYPES = Object.assign({}, TYPES, {
   BindExpression: noop,
   SpreadElement: noop,
 });
-
-const errorMessage = expression =>
-  `The prop value with an expression type of ${expression} could not be resolved.
-  Please file issue to get this fixed immediately.`;
-
-/**
- * This function maps an AST value node
- * to its correct extractor function for its
- * given type.
- *
- * This will map correctly for *all* possible expression types.
- *
- * @param - value - AST Value object with type `JSXExpressionContainer`
- * @returns The extracted value.
- */
-export default function extract(value) {
-  // Value will not have the expression property when we recurse.
-  // The type for expression on ArrowFunctionExpression is a boolean.
-  let expression;
-  if (
-    typeof value.expression !== 'boolean'
-    && value.expression
-  ) {
-    expression = value.expression;
-  } else {
-    expression = value;
-  }
-  const { type } = expression;
-
-  if (TYPES[type] === undefined) {
-    throw new Error(errorMessage(type));
-  }
-
-  return TYPES[type](expression);
-}
 
 /**
  * This function maps an AST value node
