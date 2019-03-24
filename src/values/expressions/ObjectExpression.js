@@ -10,9 +10,9 @@ export default function extractValueFromObjectExpression(value) {
   return value.properties.reduce((obj, property) => {
     const object = Object.assign({}, obj);
     // Support types: SpreadProperty and ExperimentalSpreadProperty
-    if (/^(?:Experimental)?Spread(?:Property|Element)$/.test(property.type)) {
+    if (/^(?:Experimental)?SpreadProperty$/.test(property.type)) {
       if (property.argument.type === 'ObjectExpression') {
-        return Object.assign(object, extractValueFromObjectExpression(property.argument, getValue));
+        return Object.assign(object, extractValueFromObjectExpression(property.argument));
       }
     } else {
       object[getValue(property.key)] = getValue(property.value);

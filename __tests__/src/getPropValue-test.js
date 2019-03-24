@@ -355,20 +355,6 @@ describe('getPropValue', () => {
 
       assert.equal(expected, actual);
     });
-
-    it('should evaluate to a correct representation of member expression with a nullable member', () => {
-      // This tell will not throw when Babel is upgraded from 6 to 7. Remove
-      // the throw expectation wrapper at that time.
-      // eslint-disable-next-line no-undef
-      expect(() => {
-        const prop = extractProp('<div foo={bar?.baz} />');
-
-        const expected = 'bar?.baz';
-        const actual = getPropValue(prop);
-
-        assert.equal(expected, actual);
-      }).toThrow();
-    });
   });
 
   describe('Call expression', () => {
