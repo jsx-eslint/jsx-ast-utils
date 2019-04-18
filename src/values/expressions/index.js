@@ -70,7 +70,12 @@ export default function extract(value) {
   } else {
     expression = value;
   }
-  const { type } = expression;
+  let { type } = expression;
+
+  while (type === 'TSNonNullExpression' || type === 'TSAsExpression') {
+    expression = expression.expression;
+    type = expression.type;
+  }
 
   if (TYPES[type] === undefined) {
     throw new Error(errorMessage(type));

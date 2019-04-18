@@ -1,8 +1,10 @@
 /* eslint-env mocha */
 /* eslint no-template-curly-in-string: 0 */
 import assert from 'assert';
-import { extractProp } from '../helper';
+import { extractProp, changePlugins, fallbackToBabylon } from '../helper';
 import getPropValue from '../../src/getPropValue';
+
+const describeIfNotBabylon = fallbackToBabylon ? describe.skip : describe;
 
 describe('getPropValue', () => {
   it('should export a function', () => {
@@ -357,17 +359,21 @@ describe('getPropValue', () => {
     });
 
     it('should evaluate to a correct representation of member expression with a nullable member', () => {
-      // This tell will not throw when Babel is upgraded from 6 to 7. Remove
-      // the throw expectation wrapper at that time.
-      // eslint-disable-next-line no-undef
-      expect(() => {
+      const runTest = () => {
         const prop = extractProp('<div foo={bar?.baz} />');
 
         const expected = 'bar?.baz';
         const actual = getPropValue(prop);
 
         assert.equal(expected, actual);
-      }).toThrow();
+      };
+
+      if (fallbackToBabylon) {
+        // eslint-disable-next-line no-undef
+        expect(runTest).toThrow();
+      } else {
+        runTest();
+      }
     });
   });
 
@@ -873,6 +879,40 @@ describe('getPropValue', () => {
 
       assert.deepEqual(expected, actual);
       assert.deepEqual(otherExpected, otherActual);
+    });
+  });
+
+  describeIfNotBabylon('Typescript', () => {
+    beforeEach(() => {
+      changePlugins(pls => [...pls, 'typescript']);
+    });
+
+    it('should return string representation of variable identifier wrapped in a Typescript non-null assertion', () => {
+      const prop = extractProp('<div foo={bar!} />');
+
+      const expected = 'bar';
+      const actual = getPropValue(prop);
+
+      assert.equal(expected, actual);
+    });
+
+    it('should return string representation of variable identifier wrapped in a deep Typescript non-null assertion', () => {
+      const prop = extractProp('<div foo={(bar!)!} />');
+
+      const expected = 'bar';
+      const actual = getPropValue(prop);
+
+      assert.equal(expected, actual);
+    });
+
+    it('should return string representation of variable identifier wrapped in a Typescript type coercion', () => {
+      changePlugins(pls => [...pls, 'typescript']);
+      const prop = extractProp('<div foo={bar as any} />');
+
+      const expected = 'bar';
+      const actual = getPropValue(prop);
+
+      assert.equal(expected, actual);
     });
   });
 });
