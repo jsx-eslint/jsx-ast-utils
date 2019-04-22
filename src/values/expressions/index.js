@@ -123,6 +123,8 @@ const LITERAL_TYPES = Object.assign({}, TYPES, {
   },
   BindExpression: noop,
   SpreadElement: noop,
+  TSNonNullExpression: noop,
+  TSAsExpression: noop,
 });
 
 /**

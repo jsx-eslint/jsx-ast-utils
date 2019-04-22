@@ -37,3 +37,5 @@ export function extractProp(code, prop = 'foo') {
   const { attributes: props } = node;
   return getProp(props, prop);
 }
+
+export const describeIfNotBabylon = fallbackToBabylon ? describe.skip : describe;

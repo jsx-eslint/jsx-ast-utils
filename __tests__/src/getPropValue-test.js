@@ -1,10 +1,8 @@
 /* eslint-env mocha */
 /* eslint no-template-curly-in-string: 0 */
 import assert from 'assert';
-import { extractProp, changePlugins, fallbackToBabylon } from '../helper';
+import { extractProp, changePlugins, fallbackToBabylon, describeIfNotBabylon } from '../helper';
 import getPropValue from '../../src/getPropValue';
-
-const describeIfNotBabylon = fallbackToBabylon ? describe.skip : describe;
 
 describe('getPropValue', () => {
   it('should export a function', () => {

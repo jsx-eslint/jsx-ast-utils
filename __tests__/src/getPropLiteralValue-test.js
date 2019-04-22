@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 /* eslint no-template-curly-in-string: 0 */
 import assert from 'assert';
-import { extractProp } from '../helper';
+import { extractProp, describeIfNotBabylon, changePlugins } from '../helper';
 import { getLiteralPropValue } from '../../src/getPropValue';
 
 describe('getLiteralPropValue', () => {
@@ -463,6 +463,40 @@ describe('getLiteralPropValue', () => {
       const actual = getLiteralPropValue(prop);
 
       assert.deepEqual(expected, actual);
+    });
+  });
+
+  describeIfNotBabylon('Typescript', () => {
+    beforeEach(() => {
+      changePlugins(pls => [...pls, 'typescript']);
+    });
+
+    it('should return string representation of variable identifier wrapped in a Typescript non-null assertion', () => {
+      const prop = extractProp('<div foo={bar!} />');
+
+      const expected = null;
+      const actual = getLiteralPropValue(prop);
+
+      assert.equal(expected, actual);
+    });
+
+    it('should return string representation of variable identifier wrapped in a deep Typescript non-null assertion', () => {
+      const prop = extractProp('<div foo={(bar!)!} />');
+
+      const expected = null;
+      const actual = getLiteralPropValue(prop);
+
+      assert.equal(expected, actual);
+    });
+
+    it('should return string representation of variable identifier wrapped in a Typescript type coercion', () => {
+      changePlugins(pls => [...pls, 'typescript']);
+      const prop = extractProp('<div foo={bar as any} />');
+
+      const expected = null;
+      const actual = getLiteralPropValue(prop);
+
+      assert.equal(expected, actual);
     });
   });
 });
