@@ -10,7 +10,8 @@
     "coveralls": "cat ./reports/lcov.info | coveralls",
     "lint": "eslint .",
     "pretest": "npm run lint",
-    "test": "jest --coverage",
+    "test": "npm run tests-only --",
+    "tests-only": "jest --coverage",
     "test:watch": "npm test -- --watch"
   },
   "devDependencies": {
