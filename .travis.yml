@@ -32,3 +32,5 @@ matrix:
       env: PRETEST=true
   allow_failures:
     - os: osx
+    - node_js: "0.12"
+    - node_js: "0.10"
