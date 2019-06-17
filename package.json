@@ -18,7 +18,7 @@
     "@babel/parser": "^7.4.4",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
-    "babel-eslint": "^7.2.3",
+    "babel-eslint": "^10.0.2",
     "babel-jest": "^20.0.3",
     "babel-plugin-transform-replace-object-assign": "^1.0.0",
     "babel-polyfill": "^6.26.0",
