@@ -19,7 +19,7 @@ describe('getLiteralPropValue', () => {
     assert.equal(expected, actual);
   });
 
-  it('should throw error when trying to get value from unknown node type', () => {
+  it('should not throw error when trying to get value from unknown node type', () => {
     const prop = {
       type: 'JSXAttribute',
       value: {
@@ -27,9 +27,11 @@ describe('getLiteralPropValue', () => {
       },
     };
 
-    assert.throws(() => {
+    assert.doesNotThrow(() => {
       getLiteralPropValue(prop);
     }, Error);
+
+    assert.equal(null, getLiteralPropValue(prop));
   });
 
   describe('Null', () => {

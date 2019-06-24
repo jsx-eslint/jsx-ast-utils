@@ -80,7 +80,9 @@ export default function extract(value) {
   }
 
   if (TYPES[type] === undefined) {
-    throw new Error(errorMessage(type));
+    // eslint-disable-next-line no-console
+    console.error(errorMessage(type));
+    return null;
   }
 
   return TYPES[type](expression);
@@ -145,7 +147,9 @@ export function extractLiteral(value) {
   const { type } = expression;
 
   if (LITERAL_TYPES[type] === undefined) {
-    throw new Error(errorMessage(type));
+    // eslint-disable-next-line no-console
+    console.error(errorMessage(type));
+    return null;
   }
 
   return LITERAL_TYPES[type](expression);
