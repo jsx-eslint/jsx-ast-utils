@@ -23,6 +23,9 @@ script:
   - 'if [ -n "${PRETEST-}" ]; then npm run pretest ; fi'
   - 'if [ -n "${TEST-}" ]; then npm run tests-only ; fi'
 sudo: false
+branches:
+  only:
+    - master
 env:
   - TEST=true
 matrix:
