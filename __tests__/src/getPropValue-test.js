@@ -32,9 +32,11 @@ describe('getPropValue', () => {
       },
     };
 
-    assert.throws(() => {
+    assert.doesNotThrow(() => {
       getPropValue(prop);
     }, Error);
+
+    assert.equal(null, getPropValue(prop));
   });
 
   describe('Null', () => {
