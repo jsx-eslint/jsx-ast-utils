@@ -1,3 +1,10 @@
+2.2.0 / 2019-06-25
+==================
+- (fix) Fix getLiteralPropValue for TS-specific node types.
+- (chore) upgrade dependencies.
+- (improvement) Stop throwing errors when unknown AST nodes are encountered.
+- (dev) CI changes.
+
 2.1.0 / 2018-04-19
 ==================
 - Fix undefined bug for template strings. #45
@@ -5,7 +12,7 @@
 - Accommodate ExperimentalSpreadProperty in prop values #75
 - Account for SpreadElement AST Nodes #76
 - Support OptionalMemberExpression AST nodes #77
-- Add support to Typescript's node types #72 
+- Add support to Typescript's node types #72
 
 2.0.1 / 2017-08-31
 ==================
