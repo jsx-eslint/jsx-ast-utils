@@ -18,6 +18,7 @@ import UpdateExpression from './UpdateExpression';
 import ArrayExpression from './ArrayExpression';
 import BindExpression from './BindExpression';
 import SpreadElement from './SpreadElement';
+import TypeCastExpression from './TypeCastExpression';
 
 // Composition map of types to their extractor functions.
 const TYPES = {
@@ -42,6 +43,7 @@ const TYPES = {
   ArrayExpression,
   BindExpression,
   SpreadElement,
+  TypeCastExpression,
 };
 
 const noop = () => null;
@@ -129,6 +131,7 @@ const LITERAL_TYPES = Object.assign({}, TYPES, {
   SpreadElement: noop,
   TSNonNullExpression: noop,
   TSAsExpression: noop,
+  TypeCastExpression: noop,
 });
 
 /**
