@@ -1,10 +1,18 @@
 /* eslint-env mocha */
 /* eslint no-template-curly-in-string: 0 */
 import assert from 'assert';
-import { extractProp, describeIfNotBabylon, changePlugins } from '../helper';
+import {
+  extractProp,
+  describeIfNotBabylon,
+  changePlugins,
+  setParserName,
+} from '../helper';
 import { getLiteralPropValue } from '../../src/getPropValue';
 
 describe('getLiteralPropValue', () => {
+  beforeEach(() => {
+    setParserName('babel');
+  });
   it('should export a function', () => {
     const expected = 'function';
     const actual = typeof getLiteralPropValue;
@@ -26,12 +34,22 @@ describe('getLiteralPropValue', () => {
         type: 'JSXExpressionContainer',
       },
     };
-
+    let counter = 0;
+    // eslint-disable-next-line no-console
+    const errorOrig = console.error;
+    // eslint-disable-next-line no-console
+    console.error = () => {
+      counter += 1;
+    };
+    let value;
     assert.doesNotThrow(() => {
-      getLiteralPropValue(prop);
+      value = getLiteralPropValue(prop);
     }, Error);
 
-    assert.equal(null, getLiteralPropValue(prop));
+    assert.equal(null, value);
+    assert.equal(counter, 1);
+    // eslint-disable-next-line no-console
+    console.error = errorOrig;
   });
 
   describe('Null', () => {
@@ -121,7 +139,7 @@ describe('getLiteralPropValue', () => {
 
   describe('JSXElement', () => {
     it('should return null', () => {
-      const prop = extractProp('<div foo=<bar /> />');
+      const prop = extractProp('<div foo={<bar />} />');
 
       const expected = null;
       const actual = getLiteralPropValue(prop);

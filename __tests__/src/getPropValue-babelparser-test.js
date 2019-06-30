@@ -6,10 +6,14 @@ import {
   changePlugins,
   fallbackToBabylon,
   describeIfNotBabylon,
+  setParserName,
 } from '../helper';
 import getPropValue from '../../src/getPropValue';
 
 describe('getPropValue', () => {
+  beforeEach(() => {
+    setParserName('babel');
+  });
   it('should export a function', () => {
     const expected = 'function';
     const actual = typeof getPropValue;
@@ -24,19 +28,29 @@ describe('getPropValue', () => {
     assert.equal(expected, actual);
   });
 
-  it('should throw error when trying to get value from unknown node type', () => {
+  it('should not throw error when trying to get value from unknown node type', () => {
     const prop = {
       type: 'JSXAttribute',
       value: {
         type: 'JSXExpressionContainer',
       },
     };
-
+    let counter = 0;
+    // eslint-disable-next-line no-console
+    const errorOrig = console.error;
+    // eslint-disable-next-line no-console
+    console.error = () => {
+      counter += 1;
+    };
+    let value;
     assert.doesNotThrow(() => {
-      getPropValue(prop);
+      value = getPropValue(prop);
     }, Error);
 
-    assert.equal(null, getPropValue(prop));
+    assert.equal(null, value);
+    assert.equal(counter, 1);
+    // eslint-disable-next-line no-console
+    console.error = errorOrig;
   });
 
   describe('Null', () => {
@@ -99,7 +113,7 @@ describe('getPropValue', () => {
 
   describe('JSXElement', () => {
     it('should return correct representation of JSX element as a string', () => {
-      const prop = extractProp('<div foo=<bar /> />');
+      const prop = extractProp('<div foo={<bar />} />');
 
       const expected = '<bar />';
       const actual = getPropValue(prop);
@@ -884,6 +898,25 @@ describe('getPropValue', () => {
 
       assert.deepEqual(expected, actual);
       assert.deepEqual(otherExpected, otherActual);
+    });
+  });
+
+  describe('Type Cast Expression', () => {
+    it('should throw a parsing error', () => {
+      let counter = 0;
+      // eslint-disable-next-line no-console
+      const warnOrig = console.warn;
+      // eslint-disable-next-line no-console
+      console.warn = () => {
+        counter += 1;
+      };
+      // eslint-disable-next-line no-undef
+      expect(() => {
+        extractProp('<div foo={(this.handleClick: (event: MouseEvent) => void))} />');
+      }).toThrow();
+      assert.equal(counter, 1);
+      // eslint-disable-next-line no-console
+      console.warn = warnOrig;
     });
   });
 
