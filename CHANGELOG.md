@@ -1,3 +1,7 @@
+2.2.1 / 2019-06-30
+==================
+- (improvement) Account for TypeCastExpression in the utils
+
 2.2.0 / 2019-06-25
 ==================
 - (fix) Fix getLiteralPropValue for TS-specific node types.
