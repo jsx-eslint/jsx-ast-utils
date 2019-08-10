@@ -26,7 +26,7 @@
     "babylon": "^6.18.0",
     "coveralls": "^3.0.4",
     "eslint": "^6.0.0",
-    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.17.2",
     "flow-parser": "^0.102.0",
     "in-publish": "^2.0.0",
