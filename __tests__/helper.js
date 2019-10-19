@@ -36,7 +36,7 @@ function parse(code) {
   }
   if (parserName === 'babel') {
     try {
-      return babelParser.parse(code, { plugins });
+      return babelParser.parse(code, { plugins, sourceFilename: 'test.js' });
     } catch (_) {
       // eslint-disable-next-line no-console
       console.warn(`Failed to parse with ${fallbackToBabylon ? 'babylon' : 'Babel'} parser.`);

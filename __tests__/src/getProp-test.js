@@ -45,6 +45,72 @@ describe('getProp', () => {
     assert.equal(expected, actual);
   });
 
+  it('should return the correct attribute if the attribute exists in spread', () => {
+    const code = '<div {...{ id: "foo" }} />';
+    const node = getOpeningElement(code);
+    const { attributes: props } = node;
+    const prop = 'ID';
+
+    const expected = 'id';
+    const actual = getProp(props, prop).name.name;
+
+    assert.equal(expected, actual);
+  });
+
+  it('should return the correct attribute if the attribute exists in spread as an expression', () => {
+    const code = '<div {...{ id }} />';
+    const node = getOpeningElement(code);
+    const { attributes: props } = node;
+    const prop = 'id';
+
+    const expected = 'id';
+    const actual = getProp(props, prop);
+    const actualName = actual.name.name;
+    const actualValue = actual.value.expression.name;
+
+    assert.equal(expected, actualName);
+    assert.equal(expected, actualValue);
+  });
+
+  it('should return the correct attribute if the attribute exists in spread (case sensitive)', () => {
+    const code = '<div {...{ id: "foo" }} />';
+    const node = getOpeningElement(code);
+    const { attributes: props } = node;
+    const prop = 'id';
+    const options = { ignoreCase: false };
+
+    const expected = 'id';
+    const actual = getProp(props, prop, options).name.name;
+
+    assert.equal(expected, actual);
+  });
+
+  it('should return undefined if the attribute does not exist in spread (case sensitive)', () => {
+    const code = '<div {...{ id: "foo" }} />';
+    const node = getOpeningElement(code);
+    const { attributes: props } = node;
+    const prop = 'ID';
+    const options = { ignoreCase: false };
+
+    const expected = undefined;
+    const actual = getProp(props, prop, options);
+
+    assert.equal(expected, actual);
+  });
+
+  it('should return undefined for key in spread', () => {
+    // https://github.com/reactjs/rfcs/pull/107
+    const code = '<div {...{ key }} />';
+    const node = getOpeningElement(code);
+    const { attributes: props } = node;
+    const prop = 'key';
+
+    const expected = undefined;
+    const actual = getProp(props, prop);
+
+    assert.equal(expected, actual);
+  });
+
   it('should return undefined if the attribute may exist in spread', () => {
     const code = '<div {...props} />';
     const node = getOpeningElement(code);
