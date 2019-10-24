@@ -13,7 +13,9 @@ export default function getProp(props = [], prop = '', options = DEFAULT_OPTIONS
   function getName(name) { return options.ignoreCase ? name.toUpperCase() : name; }
   const propToFind = getName(prop);
   function isPropToFind(property) {
-    return property.key.type === 'Identifier' && propToFind === getName(property.key.name);
+    return property.type === 'Property'
+      && property.key.type === 'Identifier'
+      && propToFind === getName(property.key.name);
   }
 
   const foundAttribute = props.find((attribute) => {

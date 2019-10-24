@@ -123,6 +123,15 @@ describe('getProp', () => {
     assert.equal(expected, actual);
   });
 
+  it('should not crash if the spread contains a spread', () => {
+    const code = '<div {...{ ...props }} />';
+    const node = getOpeningElement(code);
+    const { attributes: props } = node;
+    const prop = 'id';
+
+    getProp(props, prop);
+  });
+
   it('should return undefined if the attribute is considered absent in case-sensitive mode', () => {
     const code = '<div ID="foo" />';
     const node = getOpeningElement(code);
