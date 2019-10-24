@@ -1,3 +1,7 @@
+2.2.3 / 2019-10-24
+==================
+- (fix) Fix crash on spread (#94)
+
 2.2.2 / 2019-10-24
 ==================
 - (improvement) Add support for retrieving props from a spread with object expression (#93)
