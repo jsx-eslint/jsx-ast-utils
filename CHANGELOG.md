@@ -1,3 +1,7 @@
+2.2.2 / 2019-10-24
+==================
+- (improvement) Add support for retrieving props from a spread with object expression (#93)
+
 2.2.1 / 2019-06-30
 ==================
 - (improvement) Account for TypeCastExpression in the utils
