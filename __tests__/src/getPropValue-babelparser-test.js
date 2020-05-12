@@ -365,6 +365,114 @@ describe('getPropValue', () => {
 
       assert.equal(expected, actual);
     });
+
+    it('should correctly infer result of ?? logical expression based on derived values', () => {
+      const runTest = () => {
+        const prop = extractProp('<div foo={bar ?? baz} />');
+
+        const expected = 'bar';
+        const actual = getPropValue(prop);
+
+        assert.equal(expected, actual);
+      };
+
+      if (fallbackToBabylon) {
+        // eslint-disable-next-line no-undef
+        expect(runTest).toThrow();
+      } else {
+        runTest();
+      }
+    });
+
+    it('should correctly infer result of ?? logical expression based on derived values', () => {
+      const runTest = () => {
+        const prop = extractProp('<div foo={undefined ?? baz} />');
+
+        const expected = 'baz';
+        const actual = getPropValue(prop);
+
+        assert.equal(expected, actual);
+      };
+
+      if (fallbackToBabylon) {
+        // eslint-disable-next-line no-undef
+        expect(runTest).toThrow();
+      } else {
+        runTest();
+      }
+    });
+
+    it('should return undefined when evaluating `undefined ?? undefined` ', () => {
+      const runTest = () => {
+        const prop = extractProp('<div foo={undefined ?? undefined} />');
+
+        const expected = undefined;
+        const actual = getPropValue(prop);
+
+        assert.equal(expected, actual);
+      };
+
+      if (fallbackToBabylon) {
+        // eslint-disable-next-line no-undef
+        expect(runTest).toThrow();
+      } else {
+        runTest();
+      }
+    });
+
+    it('should return undefined when evaluating `null ?? undefined` ', () => {
+      const runTest = () => {
+        const prop = extractProp('<div foo={null ?? undefined} />');
+
+        const expected = undefined;
+        const actual = getPropValue(prop);
+
+        assert.equal(expected, actual);
+      };
+
+      if (fallbackToBabylon) {
+        // eslint-disable-next-line no-undef
+        expect(runTest).toThrow();
+      } else {
+        runTest();
+      }
+    });
+
+    it('should return undefined when evaluating `undefined ?? null` ', () => {
+      const runTest = () => {
+        const prop = extractProp('<div foo={undefined ?? null} />');
+
+        const expected = null;
+        const actual = getPropValue(prop);
+
+        assert.equal(expected, actual);
+      };
+
+      if (fallbackToBabylon) {
+        // eslint-disable-next-line no-undef
+        expect(runTest).toThrow();
+      } else {
+        runTest();
+      }
+    });
+
+    it('should return null when evaluating `null ?? null` ', () => {
+      const runTest = () => {
+        const prop = extractProp('<div foo={null ?? null} />');
+
+        const expected = null;
+        const actual = getPropValue(prop);
+
+        assert.equal(expected, actual);
+      };
+
+      if (fallbackToBabylon) {
+        // eslint-disable-next-line no-undef
+        expect(runTest).toThrow();
+      } else {
+        runTest();
+      }
+    });
   });
 
   describe('Member expression', () => {
