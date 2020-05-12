@@ -6,6 +6,7 @@ import TemplateLiteral from './TemplateLiteral';
 import FunctionExpression from './FunctionExpression';
 import LogicalExpression from './LogicalExpression';
 import MemberExpression from './MemberExpression';
+import OptionalCallExpression from './OptionalCallExpression';
 import OptionalMemberExpression from './OptionalMemberExpression';
 import CallExpression from './CallExpression';
 import UnaryExpression from './UnaryExpression';
@@ -31,6 +32,7 @@ const TYPES = {
   FunctionExpression,
   LogicalExpression,
   MemberExpression,
+  OptionalCallExpression,
   OptionalMemberExpression,
   CallExpression,
   UnaryExpression,
@@ -108,6 +110,7 @@ const LITERAL_TYPES = Object.assign({}, TYPES, {
   FunctionExpression: noop,
   LogicalExpression: noop,
   MemberExpression: noop,
+  OptionalCallExpression: noop,
   OptionalMemberExpression: noop,
   CallExpression: noop,
   UnaryExpression: (value) => {

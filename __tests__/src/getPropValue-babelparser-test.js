@@ -394,6 +394,24 @@ describe('getPropValue', () => {
         runTest();
       }
     });
+
+    it('should evaluate to a correct representation of optional call expression', () => {
+      const runTest = () => {
+        const prop = extractProp('<div foo={bar.baz?.(quux)} />');
+
+        const expected = 'bar.baz?.(quux)';
+        const actual = getPropValue(prop);
+
+        assert.equal(expected, actual);
+      };
+
+      if (fallbackToBabylon) {
+        // eslint-disable-next-line no-undef
+        expect(runTest).toThrow();
+      } else {
+        runTest();
+      }
+    });
   });
 
   describe('Call expression', () => {
