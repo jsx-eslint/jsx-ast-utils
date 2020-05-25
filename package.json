@@ -6,13 +6,13 @@
   "scripts": {
     "prebuild": "rimraf lib",
     "build": "babel src --out-dir lib",
-    "prepublish": "not-in-publish || (npm test && npm run build)",
+    "prepublish": "not-in-publish || (safe-publish-latest && npm test && npm run build)",
     "coveralls": "cat ./reports/lcov.info | coveralls",
     "lint": "eslint .",
     "pretest": "npm run lint",
     "test": "npm run tests-only --",
     "tests-only": "jest --coverage",
-    "test:watch": "npm test -- --watch"
+    "test:watch": "npm run tests-only -- --watch"
   },
   "devDependencies": {
     "@babel/parser": "^7.9.6",
@@ -35,7 +35,8 @@
     "jest-cli": "^20.0.4",
     "object.entries": "^1.1.2",
     "object.fromentries": "^2.0.2",
-    "rimraf": "^2.7.1"
+    "rimraf": "^2.7.1",
+    "safe-publish-latest": "^1.1.4"
   },
   "engines": {
     "node": ">=4.0"
