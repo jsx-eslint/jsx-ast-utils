@@ -15,27 +15,27 @@
     "test:watch": "npm test -- --watch"
   },
   "devDependencies": {
-    "@babel/parser": "^7.4.4",
+    "@babel/parser": "^7.9.6",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
-    "babel-eslint": "^10.0.2",
+    "babel-eslint": "^10.1.0",
     "babel-jest": "^20.0.3",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-replace-object-assign": "^1.0.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babylon": "^6.18.0",
-    "coveralls": "^3.0.4",
-    "eslint": "^6.0.0",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.17.2",
+    "coveralls": "^3.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
     "flow-parser": "^0.102.0",
-    "in-publish": "^2.0.0",
+    "in-publish": "^2.0.1",
     "jest": "^20.0.4",
     "jest-cli": "^20.0.4",
-    "object.entries": "^1.1.0",
-    "object.fromentries": "^2.0.1",
-    "rimraf": "^2.6.3"
+    "object.entries": "^1.1.2",
+    "object.fromentries": "^2.0.2",
+    "rimraf": "^2.7.1"
   },
   "engines": {
     "node": ">=4.0"

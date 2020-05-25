@@ -50,7 +50,7 @@ const TYPES = {
 
 const noop = () => null;
 
-const errorMessage = expression => `The prop value with an expression type of ${expression} could not be resolved. Please file issue to get this fixed immediately.`;
+const errorMessage = (expression) => `The prop value with an expression type of ${expression} could not be resolved. Please file issue to get this fixed immediately.`;
 
 /**
  * This function maps an AST value node
@@ -93,7 +93,8 @@ export default function extract(value) {
 }
 
 // Composition map of types to their extractor functions to handle literals.
-const LITERAL_TYPES = Object.assign({}, TYPES, {
+const LITERAL_TYPES = {
+  ...TYPES,
   Literal: (value) => {
     const extractedVal = TYPES.Literal.call(undefined, value);
     const isNull = extractedVal === null;
@@ -128,14 +129,14 @@ const LITERAL_TYPES = Object.assign({}, TYPES, {
   NewExpression: noop,
   ArrayExpression: (value) => {
     const extractedVal = TYPES.ArrayExpression.call(undefined, value);
-    return extractedVal.filter(val => val !== null);
+    return extractedVal.filter((val) => val !== null);
   },
   BindExpression: noop,
   SpreadElement: noop,
   TSNonNullExpression: noop,
   TSAsExpression: noop,
   TypeCastExpression: noop,
-});
+};
 
 /**
  * This function maps an AST value node

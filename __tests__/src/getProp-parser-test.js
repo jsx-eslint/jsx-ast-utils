@@ -119,11 +119,11 @@ function adjustNodeLocations(node, { startOffset, endOffset }) {
 
 function adjustLocationsRecursively(node, { startOffset, endOffset }) {
   if (Array.isArray(node)) {
-    return node.map(x => adjustLocationsRecursively(x, { startOffset, endOffset }));
+    return node.map((x) => adjustLocationsRecursively(x, { startOffset, endOffset }));
   }
   if (node && typeof node === 'object') {
     return adjustNodeLocations(
-      mapValues(node, x => adjustLocationsRecursively(x, { startOffset, endOffset })),
+      mapValues(node, (x) => adjustLocationsRecursively(x, { startOffset, endOffset })),
       { startOffset, endOffset },
     );
   }
