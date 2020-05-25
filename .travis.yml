@@ -2,6 +2,7 @@ language: node_js
 os:
  - linux
 node_js:
+  - "14"
   - "12"
   - "10"
   - "8"
@@ -22,10 +23,6 @@ install:
 script:
   - 'if [ -n "${PRETEST-}" ]; then npm run pretest ; fi'
   - 'if [ -n "${TEST-}" ]; then npm run tests-only ; fi'
-sudo: false
-branches:
-  only:
-    - master
 env:
   - TEST=true
 matrix:
