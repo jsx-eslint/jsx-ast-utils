@@ -1,3 +1,7 @@
+Unreleased
+==================
+- [Fix] `expressions/TemplateLiteral`: use `.range[0]` instead of `.start`
+
 2.4.0 / 2020-06-11
 ==================
 - [New] Provide both range and start & end property on Node, support eslint v7 (#97)
