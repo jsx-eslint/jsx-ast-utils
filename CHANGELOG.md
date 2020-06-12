@@ -1,5 +1,8 @@
 Unreleased
 ==================
+
+2.4.1 / 2020-06-11
+==================
 - [Fix] `expressions/TemplateLiteral`: use `.range[0]` instead of `.start`
 
 2.4.0 / 2020-06-11

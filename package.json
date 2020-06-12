@@ -1,6 +1,6 @@
 {
   "name": "jsx-ast-utils",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "description": "AST utility module for statically analyzing JSX",
   "main": "lib/index.js",
   "scripts": {
