@@ -21,6 +21,7 @@ import ArrayExpression from './ArrayExpression';
 import BindExpression from './BindExpression';
 import SpreadElement from './SpreadElement';
 import TypeCastExpression from './TypeCastExpression';
+import SequenceExpression from './SequenceExpression';
 
 // Composition map of types to their extractor functions.
 const TYPES = {
@@ -48,6 +49,7 @@ const TYPES = {
   BindExpression,
   SpreadElement,
   TypeCastExpression,
+  SequenceExpression,
 };
 
 const noop = () => null;
@@ -138,6 +140,7 @@ const LITERAL_TYPES = {
   TSNonNullExpression: noop,
   TSAsExpression: noop,
   TypeCastExpression: noop,
+  SequenceExpression: noop,
 };
 
 /**

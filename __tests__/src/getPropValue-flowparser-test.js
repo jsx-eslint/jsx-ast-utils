@@ -828,6 +828,21 @@ describe('getPropValue', () => {
     });
   });
 
+  describe('Sequence array expression', () => {
+    it('should evaluate to correct representation of the the array in props', () => {
+      const prop = extractProp('<div foo={[{"type":"Literal","start":821,"end":827}]} />');
+
+      const expected = [{
+        type: 'Literal',
+        start: 821,
+        end: 827,
+      }];
+      const actual = getPropValue(prop);
+
+      assert.deepEqual(actual, expected);
+    });
+  });
+
   describe('Array expression', () => {
     it('should evaluate to correct representation of the the array in props', () => {
       const prop = extractProp('<div foo={["bar", 42, null]} />');
