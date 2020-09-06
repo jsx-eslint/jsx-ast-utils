@@ -18,14 +18,14 @@ describe('getPropValue', () => {
     const expected = 'function';
     const actual = typeof getPropValue;
 
-    assert.equal(expected, actual);
+    assert.equal(actual, expected);
   });
 
   it('should return undefined when not provided with a JSXAttribute', () => {
     const expected = undefined;
     const actual = getPropValue(1);
 
-    assert.equal(expected, actual);
+    assert.equal(actual, expected);
   });
 
   it('should not throw error when trying to get value from unknown node type', () => {
@@ -60,7 +60,7 @@ describe('getPropValue', () => {
       const expected = true;
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
   });
 
@@ -71,7 +71,7 @@ describe('getPropValue', () => {
       const expected = 'bar';
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should return correct string if value is a string expression', () => {
@@ -80,7 +80,7 @@ describe('getPropValue', () => {
       const expected = 'bar';
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should return correct integer if value is a integer expression', () => {
@@ -89,7 +89,7 @@ describe('getPropValue', () => {
       const expected = 1;
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should convert "true" to boolean type', () => {
@@ -98,7 +98,7 @@ describe('getPropValue', () => {
       const expected = true;
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should convert "false" to boolean type', () => {
@@ -107,7 +107,7 @@ describe('getPropValue', () => {
       const expected = false;
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
   });
 
@@ -118,7 +118,7 @@ describe('getPropValue', () => {
       const expected = '<bar />';
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
   });
 
@@ -129,7 +129,7 @@ describe('getPropValue', () => {
       const expected = 'bar';
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should return undefined when identifier is literally `undefined`', () => {
@@ -138,7 +138,7 @@ describe('getPropValue', () => {
       const expected = undefined;
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should return String object when using a reserved JavaScript object', () => {
@@ -147,7 +147,7 @@ describe('getPropValue', () => {
       const expected = String;
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should return Array object when using a reserved JavaScript object', () => {
@@ -156,7 +156,7 @@ describe('getPropValue', () => {
       const expected = Array;
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should return Date object when using a reserved JavaScript object', () => {
@@ -165,7 +165,7 @@ describe('getPropValue', () => {
       const expected = Date;
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should return Infinity object when using a reserved JavaScript object', () => {
@@ -174,7 +174,7 @@ describe('getPropValue', () => {
       const expected = Infinity;
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should return Math object when using a reserved JavaScript object', () => {
@@ -183,7 +183,7 @@ describe('getPropValue', () => {
       const expected = Math;
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should return Number object when using a reserved JavaScript object', () => {
@@ -192,7 +192,7 @@ describe('getPropValue', () => {
       const expected = Number;
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should return Object object when using a reserved JavaScript object', () => {
@@ -201,7 +201,7 @@ describe('getPropValue', () => {
       const expected = Object;
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
   });
 
@@ -212,7 +212,7 @@ describe('getPropValue', () => {
       const expected = 'bar {baz}';
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should return string "undefined" for expressions that evaluate to undefined', () => {
@@ -221,7 +221,7 @@ describe('getPropValue', () => {
       const expected = 'bar undefined';
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should return template literal with expression type wrapped in curly braces', () => {
@@ -230,7 +230,7 @@ describe('getPropValue', () => {
       const expected = 'bar {CallExpression}';
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should ignore non-expressions in the template literal', () => {
@@ -239,7 +239,7 @@ describe('getPropValue', () => {
       const expected = 'bar ';
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
   });
 
@@ -250,7 +250,7 @@ describe('getPropValue', () => {
       const expected = 'bar {baz}';
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should return string "undefined" for expressions that evaluate to undefined', () => {
@@ -259,7 +259,7 @@ describe('getPropValue', () => {
       const expected = 'bar undefined';
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should return template literal with expression type wrapped in curly braces', () => {
@@ -268,7 +268,7 @@ describe('getPropValue', () => {
       const expected = 'bar {CallExpression}';
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should ignore non-expressions in the template literal', () => {
@@ -277,7 +277,7 @@ describe('getPropValue', () => {
       const expected = 'bar ';
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
   });
 
@@ -327,7 +327,7 @@ describe('getPropValue', () => {
       const expected = 'baz';
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should return undefined when evaluating `undefined && undefined` ', () => {
@@ -336,7 +336,7 @@ describe('getPropValue', () => {
       const expected = undefined;
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should correctly infer result of || logical expression based on derived values', () => {
@@ -345,7 +345,7 @@ describe('getPropValue', () => {
       const expected = 'bar';
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should correctly infer result of || logical expression based on derived values', () => {
@@ -354,7 +354,7 @@ describe('getPropValue', () => {
       const expected = 'baz';
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should return undefined when evaluating `undefined || undefined` ', () => {
@@ -363,7 +363,7 @@ describe('getPropValue', () => {
       const expected = undefined;
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should correctly infer result of ?? logical expression based on derived values', () => {
@@ -373,7 +373,7 @@ describe('getPropValue', () => {
         const expected = 'bar';
         const actual = getPropValue(prop);
 
-        assert.equal(expected, actual);
+        assert.equal(actual, expected);
       };
 
       if (fallbackToBabylon) {
@@ -391,7 +391,7 @@ describe('getPropValue', () => {
         const expected = 'baz';
         const actual = getPropValue(prop);
 
-        assert.equal(expected, actual);
+        assert.equal(actual, expected);
       };
 
       if (fallbackToBabylon) {
@@ -409,7 +409,7 @@ describe('getPropValue', () => {
         const expected = undefined;
         const actual = getPropValue(prop);
 
-        assert.equal(expected, actual);
+        assert.equal(actual, expected);
       };
 
       if (fallbackToBabylon) {
@@ -427,7 +427,7 @@ describe('getPropValue', () => {
         const expected = undefined;
         const actual = getPropValue(prop);
 
-        assert.equal(expected, actual);
+        assert.equal(actual, expected);
       };
 
       if (fallbackToBabylon) {
@@ -445,7 +445,7 @@ describe('getPropValue', () => {
         const expected = null;
         const actual = getPropValue(prop);
 
-        assert.equal(expected, actual);
+        assert.equal(actual, expected);
       };
 
       if (fallbackToBabylon) {
@@ -463,7 +463,7 @@ describe('getPropValue', () => {
         const expected = null;
         const actual = getPropValue(prop);
 
-        assert.equal(expected, actual);
+        assert.equal(actual, expected);
       };
 
       if (fallbackToBabylon) {
@@ -482,7 +482,7 @@ describe('getPropValue', () => {
       const expected = 'bar.baz';
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should evaluate to a correct representation of member expression with a nullable member', () => {
@@ -492,7 +492,7 @@ describe('getPropValue', () => {
         const expected = 'bar?.baz';
         const actual = getPropValue(prop);
 
-        assert.equal(expected, actual);
+        assert.equal(actual, expected);
       };
 
       if (fallbackToBabylon) {
@@ -510,7 +510,7 @@ describe('getPropValue', () => {
         const expected = 'bar.baz?.(quux)';
         const actual = getPropValue(prop);
 
-        assert.equal(expected, actual);
+        assert.equal(actual, expected);
       };
 
       if (fallbackToBabylon) {
@@ -529,7 +529,7 @@ describe('getPropValue', () => {
       const expected = 'bar';
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should return string representation of callee', () => {
@@ -538,7 +538,7 @@ describe('getPropValue', () => {
       const expected = 'bar.call';
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
   });
 
@@ -550,7 +550,7 @@ describe('getPropValue', () => {
       const expected = true;
       const actual = Number.isNaN(getPropValue(prop));
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should correctly evaluate an expression that prefixes with -', () => {
@@ -559,7 +559,7 @@ describe('getPropValue', () => {
       const expected = -42;
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should correctly evaluate an expression that prefixes with +', () => {
@@ -569,7 +569,7 @@ describe('getPropValue', () => {
       const expected = true;
       const actual = Number.isNaN(getPropValue(prop));
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should correctly evaluate an expression that prefixes with +', () => {
@@ -578,7 +578,7 @@ describe('getPropValue', () => {
       const expected = 42;
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should correctly evaluate an expression that prefixes with !', () => {
@@ -587,7 +587,7 @@ describe('getPropValue', () => {
       const expected = false; // !"bar" === false
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should correctly evaluate an expression that prefixes with ~', () => {
@@ -596,7 +596,7 @@ describe('getPropValue', () => {
       const expected = -1; // ~"bar" === -1
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should return true when evaluating `delete foo`', () => {
@@ -605,7 +605,7 @@ describe('getPropValue', () => {
       const expected = true;
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should return undefined when evaluating `void foo`', () => {
@@ -614,7 +614,7 @@ describe('getPropValue', () => {
       const expected = undefined;
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     // TODO: We should fix this to check to see if we can evaluate it.
@@ -624,7 +624,7 @@ describe('getPropValue', () => {
       const expected = undefined;
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
   });
 
@@ -636,7 +636,7 @@ describe('getPropValue', () => {
       const expected = true;
       const actual = Number.isNaN(getPropValue(prop));
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should correctly evaluate an expression that prefixes with --', () => {
@@ -645,7 +645,7 @@ describe('getPropValue', () => {
       const expected = true;
       const actual = Number.isNaN(getPropValue(prop));
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should correctly evaluate an expression that suffixes with ++', () => {
@@ -655,7 +655,7 @@ describe('getPropValue', () => {
       const expected = true;
       const actual = Number.isNaN(getPropValue(prop));
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should correctly evaluate an expression that suffixes with --', () => {
@@ -664,7 +664,7 @@ describe('getPropValue', () => {
       const expected = true;
       const actual = Number.isNaN(getPropValue(prop));
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
   });
 
@@ -675,7 +675,7 @@ describe('getPropValue', () => {
       const expected = 'this';
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
   });
 
@@ -686,7 +686,7 @@ describe('getPropValue', () => {
       const expected = 'baz';
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should evaluate the conditional based on the derived values correctly', () => {
@@ -695,7 +695,7 @@ describe('getPropValue', () => {
       const expected = 'bam';
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should evaluate the conditional based on the derived values correctly', () => {
@@ -704,7 +704,7 @@ describe('getPropValue', () => {
       const expected = 'bam';
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
   });
 
@@ -803,7 +803,7 @@ describe('getPropValue', () => {
       const expected = 4;
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should evaluate the `>>` operator correctly', () => {
@@ -812,7 +812,7 @@ describe('getPropValue', () => {
       const expected = 0;
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should evaluate the `>>>` operator correctly', () => {
@@ -821,7 +821,7 @@ describe('getPropValue', () => {
       const expected = 1;
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should evaluate the `+` operator correctly', () => {
@@ -830,7 +830,7 @@ describe('getPropValue', () => {
       const expected = 2;
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should evaluate the `-` operator correctly', () => {
@@ -839,7 +839,7 @@ describe('getPropValue', () => {
       const expected = 0;
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should evaluate the `*` operator correctly', () => {
@@ -848,7 +848,7 @@ describe('getPropValue', () => {
       const expected = 100;
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should evaluate the `/` operator correctly', () => {
@@ -857,7 +857,7 @@ describe('getPropValue', () => {
       const expected = 5;
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should evaluate the `%` operator correctly', () => {
@@ -866,7 +866,7 @@ describe('getPropValue', () => {
       const expected = 1;
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should evaluate the `|` operator correctly', () => {
@@ -875,7 +875,7 @@ describe('getPropValue', () => {
       const expected = 11;
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should evaluate the `^` operator correctly', () => {
@@ -884,7 +884,7 @@ describe('getPropValue', () => {
       const expected = 11;
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should evaluate the `&` operator correctly', () => {
@@ -893,7 +893,7 @@ describe('getPropValue', () => {
       const expected = 0;
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should evaluate the `in` operator correctly', () => {
@@ -902,7 +902,7 @@ describe('getPropValue', () => {
       const expected = false;
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should evaluate the `instanceof` operator correctly', () => {
@@ -911,7 +911,7 @@ describe('getPropValue', () => {
       const expected = true;
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should evaluate the `instanceof` operator when right side is not a function', () => {
@@ -920,7 +920,7 @@ describe('getPropValue', () => {
       const expected = false;
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
   });
 
@@ -931,7 +931,7 @@ describe('getPropValue', () => {
       const expected = { bar: 'baz' };
       const actual = getPropValue(prop);
 
-      assert.deepEqual(expected, actual);
+      assert.deepEqual(actual, expected);
     });
 
     it('should evaluate to a correct representation of the object, ignore spread properties', () => {
@@ -940,7 +940,7 @@ describe('getPropValue', () => {
       const expected = { bar: 'baz', baz: 'bar', foo: { bar: 'meh' } };
       const actual = getPropValue(prop);
 
-      assert.deepEqual(expected, actual);
+      assert.deepEqual(actual, expected);
     });
 
     it('should evaluate to a correct representation of the object, ignore spread properties', () => {
@@ -949,7 +949,7 @@ describe('getPropValue', () => {
       const expected = { pathname: 'manageRoute', state: {} };
       const actual = getPropValue(prop);
 
-      assert.deepEqual(expected, actual);
+      assert.deepEqual(actual, expected);
     });
   });
 
@@ -960,7 +960,7 @@ describe('getPropValue', () => {
       const expected = {};
       const actual = getPropValue(prop);
 
-      assert.deepEqual(expected, actual);
+      assert.deepEqual(actual, expected);
     });
   });
 
@@ -971,7 +971,7 @@ describe('getPropValue', () => {
       const expected = ['bar', 42, null];
       const actual = getPropValue(prop);
 
-      assert.deepEqual(expected, actual);
+      assert.deepEqual(actual, expected);
     });
 
     it('should evaluate to a correct representation of an array with spread elements', () => {
@@ -980,7 +980,7 @@ describe('getPropValue', () => {
       const expected = [undefined, 'bar'];
       const actual = getPropValue(prop);
 
-      assert.deepEqual(expected, actual);
+      assert.deepEqual(actual, expected);
     });
   });
 
@@ -990,7 +990,7 @@ describe('getPropValue', () => {
     const expected = [];
     const actual = getPropValue(prop);
 
-    assert.deepEqual(expected, actual);
+    assert.deepEqual(actual, expected);
   });
 
   describe('Bind expression', () => {
@@ -1000,7 +1000,7 @@ describe('getPropValue', () => {
       const expected = 'this.handleClick.bind(this)';
       const actual = getPropValue(prop);
 
-      assert.deepEqual(expected, actual);
+      assert.deepEqual(actual, expected);
     });
 
     it('should return string representation of bind function call when object is not null', () => {
@@ -1009,7 +1009,7 @@ describe('getPropValue', () => {
       const expected = 'bar.bind(foo)';
       const actual = getPropValue(prop);
 
-      assert.deepEqual(expected, actual);
+      assert.deepEqual(actual, expected);
     });
 
     it('should return string representation of bind function call when binding to object properties', () => {
@@ -1022,7 +1022,7 @@ describe('getPropValue', () => {
       const otherExpected = 'a.b.c.bind(a.b)';
       const otherActual = getPropValue(otherProp);
 
-      assert.deepEqual(expected, actual);
+      assert.deepEqual(actual, expected);
       assert.deepEqual(otherExpected, otherActual);
     });
   });
@@ -1057,7 +1057,7 @@ describe('getPropValue', () => {
       const expected = 'bar';
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should return string representation of variable identifier wrapped in a deep Typescript non-null assertion', () => {
@@ -1066,7 +1066,7 @@ describe('getPropValue', () => {
       const expected = 'bar';
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
 
     it('should return string representation of variable identifier wrapped in a Typescript type coercion', () => {
@@ -1076,7 +1076,7 @@ describe('getPropValue', () => {
       const expected = 'bar';
       const actual = getPropValue(prop);
 
-      assert.equal(expected, actual);
+      assert.equal(actual, expected);
     });
   });
 });
