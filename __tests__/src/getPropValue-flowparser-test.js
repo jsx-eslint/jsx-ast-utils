@@ -390,7 +390,7 @@ describe('getPropValue', () => {
     it('should return string representation of callee', () => {
       const prop = extractProp('<div foo={bar()} />');
 
-      const expected = 'bar';
+      const expected = 'bar()';
       const actual = getPropValue(prop);
 
       assert.equal(actual, expected);
@@ -399,7 +399,7 @@ describe('getPropValue', () => {
     it('should return string representation of callee', () => {
       const prop = extractProp('<div foo={bar.call()} />');
 
-      const expected = 'bar.call';
+      const expected = 'bar.call()';
       const actual = getPropValue(prop);
 
       assert.equal(actual, expected);
