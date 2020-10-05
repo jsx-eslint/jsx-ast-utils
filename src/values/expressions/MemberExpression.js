@@ -4,10 +4,12 @@
  *
  * @param - value - AST Value object with type `MemberExpression`
  * @returns - The extracted value converted to correct type
- *  and maintaing `obj.property` convention.
+ *  and maintaing `obj.property` convention,
+ * or `obj?.property` if it occurs in a `ChainExpression`.
  */
 export default function extractValueFromMemberExpression(value) {
   // eslint-disable-next-line global-require
   const getValue = require('./index.js').default;
-  return `${getValue(value.object)}.${getValue(value.property)}`;
+  const separator = value.optional ? '?.' : '.';
+  return `${getValue(value.object)}${separator}${getValue(value.property)}`;
 }

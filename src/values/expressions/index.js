@@ -6,6 +6,7 @@ import TemplateLiteral from './TemplateLiteral';
 import FunctionExpression from './FunctionExpression';
 import LogicalExpression from './LogicalExpression';
 import MemberExpression from './MemberExpression';
+import ChainExpression from './ChainExpression';
 import OptionalCallExpression from './OptionalCallExpression';
 import OptionalMemberExpression from './OptionalMemberExpression';
 import CallExpression from './CallExpression';
@@ -32,6 +33,7 @@ const TYPES = {
   FunctionExpression,
   LogicalExpression,
   MemberExpression,
+  ChainExpression,
   OptionalCallExpression,
   OptionalMemberExpression,
   CallExpression,
