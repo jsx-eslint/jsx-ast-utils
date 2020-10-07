@@ -66,6 +66,6 @@
   },
   "dependencies": {
     "array-includes": "^3.1.1",
-    "object.assign": "^4.1.0"
+    "object.assign": "^4.1.1"
   }
 }
