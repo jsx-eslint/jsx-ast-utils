@@ -1,6 +1,16 @@
 Unreleased
 ==================
 
+3.0.0 / 2020-10-06
+==================
+- [Breaking] Don't return node.start & node.end (#100)
+- [Breaking] add `ChainExpression`; `CallExpression` now includes arguments (#102)
+- [New] add `SequenceExpression` (#101)
+- [Deps] update `object.assign`
+- [Dev Deps] update `eslint`, `eslint-plugin-import`
+- [Dev Deps] update `@babel/core`, `@babel/parser`, `eslint`, `eslint-plugin-import`
+- [Tests] use proper `actual, expected` ordering for non-confusing failure messages
+
 2.4.1 / 2020-06-11
 ==================
 - [Fix] `expressions/TemplateLiteral`: use `.range[0]` instead of `.start`
