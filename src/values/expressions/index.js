@@ -22,6 +22,7 @@ import BindExpression from './BindExpression';
 import SpreadElement from './SpreadElement';
 import TypeCastExpression from './TypeCastExpression';
 import SequenceExpression from './SequenceExpression';
+import TSNonNullExpression from './TSNonNullExpression';
 
 // Composition map of types to their extractor functions.
 const TYPES = {
@@ -50,6 +51,7 @@ const TYPES = {
   SpreadElement,
   TypeCastExpression,
   SequenceExpression,
+  TSNonNullExpression,
 };
 
 const noop = () => null;
@@ -80,7 +82,12 @@ export default function extract(value) {
   }
   let { type } = expression;
 
-  while (type === 'TSNonNullExpression' || type === 'TSAsExpression') {
+  // Typescript NonNull Expression is wrapped & it would end up in the wrong extractor
+  if (expression.object && expression.object.type === 'TSNonNullExpression') {
+    type = 'TSNonNullExpression';
+  }
+
+  while (type === 'TSAsExpression') {
     ({ type } = expression);
     if (expression.expression) {
       ({ expression } = expression);

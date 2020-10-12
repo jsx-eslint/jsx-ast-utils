@@ -1,5 +1,6 @@
 Unreleased
 ==================
+- [New] add `TSNonNullExpression` (#105)
 
 3.0.0 / 2020-10-06
 ==================
