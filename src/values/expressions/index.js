@@ -23,6 +23,7 @@ import SpreadElement from './SpreadElement';
 import TypeCastExpression from './TypeCastExpression';
 import SequenceExpression from './SequenceExpression';
 import TSNonNullExpression from './TSNonNullExpression';
+import AssignmentExpression from './AssignmentExpression';
 
 // Composition map of types to their extractor functions.
 const TYPES = {
@@ -52,6 +53,7 @@ const TYPES = {
   TypeCastExpression,
   SequenceExpression,
   TSNonNullExpression,
+  AssignmentExpression,
 };
 
 const noop = () => null;

@@ -1046,6 +1046,26 @@ describe('getPropValue', () => {
     });
   });
 
+  describe('AssignmentExpression', () => {
+    it('should recognize and extract assignment', () => {
+      const prop = extractProp('<div foo={foo = bar} />');
+
+      const expected = 'foo = bar';
+      const actual = getPropValue(prop);
+
+      assert.deepEqual(actual, expected);
+    });
+
+    it('should recognize and extract combination assignments', () => {
+      const prop = extractProp('<div foo={foo += bar} />');
+
+      const expected = 'foo += bar';
+      const actual = getPropValue(prop);
+
+      assert.deepEqual(actual, expected);
+    });
+  });
+
   describeIfNotBabylon('Typescript', () => {
     beforeEach(() => {
       changePlugins((pls) => [...pls, 'typescript']);
