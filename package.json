@@ -27,7 +27,7 @@
     "babel-preset-env": "^1.7.0",
     "babylon": "^6.18.0",
     "coveralls": "^3.1.0",
-    "eslint": "^7.10.0",
+    "eslint": "^7.11.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.1",
     "flow-parser": "^0.126.1",
