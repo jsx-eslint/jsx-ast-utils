@@ -1174,5 +1174,12 @@ describe('getPropValue', () => {
       const actual = getPropValue(prop);
       assert.equal(actual, expected);
     });
+
+    it('should work with a this.props value', () => {
+      const prop = extractProp('<a foo={this.props.href!}>Download</a>');
+      const expected = 'this.props.href!';
+      const actual = getPropValue(prop);
+      assert.equal(actual, expected);
+    });
   });
 });

@@ -1,5 +1,7 @@
 Unreleased
 ==================
+- [New] add support for fragment syntax (`<>`) (#108)
+- [Fix] `TSNonNullExpression`: handle `ThisExpression`s (#108)
 
 3.1.0 / 2020-10-13
 ==================
