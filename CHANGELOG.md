@@ -3,6 +3,7 @@ Unreleased
 - [New] add support for fragment syntax (`<>`) (#108)
 - [Fix] `TSNonNullExpression`: handle `ThisExpression`s (#108)
 - [Deps] update `array-includes`, `object.assign`
+- [Dev Deps] update `@babel/core`, `@babel/parser`, `eslint`, `eslint-config-airbnb-base`, `object.entries`, `object.fromentries`
 
 3.1.0 / 2020-10-13
 ==================
