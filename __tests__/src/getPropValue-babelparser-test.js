@@ -14,6 +14,7 @@ describe('getPropValue', () => {
   beforeEach(() => {
     setParserName('babel');
   });
+
   it('should export a function', () => {
     const expected = 'function';
     const actual = typeof getPropValue;
@@ -1178,6 +1179,15 @@ describe('getPropValue', () => {
     it('should work with a this.props value', () => {
       const prop = extractProp('<a foo={this.props.href!}>Download</a>');
       const expected = 'this.props.href!';
+      const actual = getPropValue(prop);
+      assert.equal(actual, expected);
+    });
+  });
+
+  describe('JSX empty expression', () => {
+    it('should work with an empty expression', () => {
+      const prop = extractProp('<div>\n{/* Hello there */}\n</div>', 'children');
+      const expected = undefined;
       const actual = getPropValue(prop);
       assert.equal(actual, expected);
     });
