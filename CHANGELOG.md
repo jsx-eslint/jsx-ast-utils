@@ -1,5 +1,8 @@
 Unreleased
 ==================
+
+3.2.0 / 2020-12-16
+==================
 - [New] add support for fragment syntax (`<>`) (#108)
 - [Fix] `TSNonNullExpression`: handle `ThisExpression`s (#108)
 - [Deps] update `array-includes`, `object.assign`
