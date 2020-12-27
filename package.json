@@ -7,7 +7,6 @@
     "prebuild": "rimraf lib",
     "build": "babel src --out-dir lib",
     "prepublish": "not-in-publish || (safe-publish-latest && npm test && npm run build)",
-    "coveralls": "cat ./reports/lcov.info | coveralls",
     "lint": "eslint .",
     "pretest": "npm run lint",
     "test": "npm run tests-only --",
@@ -28,7 +27,6 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babylon": "^6.18.0",
-    "coveralls": "^3.1.0",
     "eslint": "^7.15.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
@@ -58,9 +56,11 @@
   "license": "MIT",
   "jest": {
     "coverageReporters": [
-      "lcov"
+      "lcov",
+      "html",
+      "json"
     ],
-    "coverageDirectory": "reports",
+    "coverageDirectory": "coverage",
     "testPathIgnorePatterns": [
       "/node_modules/",
       "helper.js"
