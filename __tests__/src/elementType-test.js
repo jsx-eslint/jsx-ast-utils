@@ -1,6 +1,6 @@
 /* eslint-env mocha */
 import assert from 'assert';
-import { getOpeningElement, setParserName } from '../helper';
+import { getOpeningElement, setParserName, describeIfNotBabylon } from '../helper';
 import elementType from '../../src/elementType';
 
 describe('elementType tests', () => {
@@ -83,13 +83,15 @@ describe('elementType tests', () => {
     assert.equal(actual, expected);
   });
 
-  it('should work with fragments', () => {
-    const code = '<>foo</>';
-    const node = getOpeningElement(code);
+  describeIfNotBabylon('fragments', () => {
+    it('should work with fragments', () => {
+      const code = '<>foo</>';
+      const node = getOpeningElement(code);
 
-    const expected = '<>';
-    const actual = elementType(node);
+      const expected = '<>';
+      const actual = elementType(node);
 
-    assert.equal(actual, expected);
+      assert.equal(actual, expected);
+    });
   });
 });
