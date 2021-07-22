@@ -51,7 +51,7 @@
   "author": "Ethan Cohen",
   "repository": {
     "type": "git",
-    "url": "https://github.com/evcohen/jsx-ast-utils"
+    "url": "https://github.com/jsx-eslint/jsx-ast-utils"
   },
   "license": "MIT",
   "jest": {

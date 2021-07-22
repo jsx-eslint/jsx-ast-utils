@@ -1,26 +1,13 @@
-<p align="center">
-  <a href="https://travis-ci.org/evcohen/jsx-ast-utils">
-    <img src="https://api.travis-ci.org/evcohen/jsx-ast-utils.svg?branch=master"
-         alt="build status">
-  </a>
-  <a href="https://npmjs.org/package/jsx-ast-utils">
-    <img src="https://img.shields.io/npm/v/jsx-ast-utils.svg"
-         alt="npm version">
-  </a>
-  <a href="https://github.com/evcohen/jsx-ast-utils/blob/master/LICENSE.md">
-    <img src="https://img.shields.io/npm/l/jsx-ast-utils.svg"
-         alt="license">
-  </a>
-  <a href='https://coveralls.io/github/evcohen/jsx-ast-utils?branch=master'>
-    <img src='https://coveralls.io/repos/github/evcohen/jsx-ast-utils/badge.svg?branch=master' alt='Coverage Status' />
-  </a>
-  <a href='https://npmjs.org/package/jsx-ast-utils'>
-    <img src='https://img.shields.io/npm/dt/jsx-ast-utils.svg'
-    alt='Total npm downloads' />
-  </a>
-</p>
+# jsx-ast-utils <sup>[![Version Badge][npm-version-svg]][package-url]</sup>
 
-# jsx-ast-utils
+[![github actions][actions-image]][actions-url]
+[![coverage][codecov-image]][codecov-url]
+[![dependency status][deps-svg]][deps-url]
+[![dev dependency status][dev-deps-svg]][dev-deps-url]
+[![License][license-image]][license-url]
+[![Downloads][downloads-image]][downloads-url]
+
+[![npm badge][npm-badge-png]][package-url]
 
 AST utility module for statically analyzing JSX.
 
@@ -30,7 +17,7 @@ $ npm i jsx-ast-utils --save
 ```
 
 ## Usage
-This is a utility module to evaluate AST objects for JSX syntax. This can be super useful when writing linting rules for JSX code. It was originally in the code for [eslint-plugin-jsx-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y), however I thought it could be useful to be extracted and maintained separately so **you** could write new interesting rules to statically analyze JSX.
+This is a utility module to evaluate AST objects for JSX syntax. This can be super useful when writing linting rules for JSX code. It was originally in the code for [eslint-plugin-jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y), however I thought it could be useful to be extracted and maintained separately so **you** could write new interesting rules to statically analyze JSX.
 
 ### ESLint example
 ```js
@@ -292,3 +279,20 @@ console.log(eventHandlersByType);
 }
 */
 ```
+
+
+[1]: https://npmjs.org/package/jsx-ast-utils
+[2]: https://versionbadg.es/jsx-eslint/jsx-ast-utils.svg
+[5]: https://david-dm.org/jsx-eslint/jsx-ast-utils.svg
+[6]: https://david-dm.org/jsx-eslint/jsx-ast-utils
+[7]: https://david-dm.org/jsx-eslint/jsx-ast-utils/dev-status.svg
+[8]: https://david-dm.org/jsx-eslint/jsx-ast-utils#info=devDependencies
+[11]: https://nodei.co/npm/jsx-ast-utils.png?downloads=true&stars=true
+[license-image]: https://img.shields.io/npm/l/jsx-ast-utils.svg
+[license-url]: LICENSE
+[downloads-image]: https://img.shields.io/npm/dm/jsx-ast-utils.svg
+[downloads-url]: https://npm-stat.com/charts.html?package=jsx-ast-utils
+[codecov-image]: https://codecov.io/gh/jsx-eslint/jsx-ast-utils/branch/main/graphs/badge.svg
+[codecov-url]: https://app.codecov.io/gh/jsx-eslint/jsx-ast-utils/
+[actions-image]: https://img.shields.io/endpoint?url=https://github-actions-badge-u3jn4tfpocch.runkit.sh/jsx-eslint/jsx-ast-utils
+[actions-url]: https://github.com/jsx-eslint/jsx-ast-utils/actions
