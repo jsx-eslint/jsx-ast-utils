@@ -8,6 +8,6 @@
  */
 export default function extractValueFromOptionalCallExpression(value) {
   // eslint-disable-next-line global-require
-  const getValue = require('./index.js').default;
+  const getValue = require('.').default;
   return `${getValue(value.callee)}?.(${value.arguments.map((x) => getValue(x)).join(', ')})`;
 }

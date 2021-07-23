@@ -8,7 +8,7 @@
  */
 export default function extractValueFromUpdateExpression(value) {
   // eslint-disable-next-line global-require
-  const getValue = require('./index.js').default;
+  const getValue = require('.').default;
   const { operator, argument, prefix } = value;
 
   let val = getValue(argument);

@@ -6,6 +6,6 @@
  */
 export default function extractValueFromArrayExpression(value) {
   // eslint-disable-next-line global-require
-  const getValue = require('./index.js').default;
+  const getValue = require('.').default;
   return value.elements.map((element) => getValue(element));
 }

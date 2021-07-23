@@ -6,7 +6,7 @@
  */
 export default function extractValueFromConditionalExpression(value) {
   // eslint-disable-next-line global-require
-  const getValue = require('./index.js').default;
+  const getValue = require('.').default;
   const {
     test,
     alternate,

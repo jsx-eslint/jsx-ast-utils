@@ -8,7 +8,7 @@
  */
 export default function extractValueFromLogicalExpression(value) {
   // eslint-disable-next-line global-require
-  const getValue = require('./index.js').default;
+  const getValue = require('.').default;
   const { operator, left, right } = value;
   const leftVal = getValue(left);
   const rightVal = getValue(right);

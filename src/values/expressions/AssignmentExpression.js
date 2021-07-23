@@ -8,6 +8,6 @@
  */
 export default function extractValueFromAssignmentExpression(value) {
   // eslint-disable-next-line global-require
-  const getValue = require('./index.js').default;
+  const getValue = require('.').default;
   return `${getValue(value.left)} ${value.operator} ${getValue(value.right)}`;
 }

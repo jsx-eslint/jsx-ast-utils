@@ -8,7 +8,7 @@ import assign from 'object.assign';
  */
 export default function extractValueFromObjectExpression(value) {
   // eslint-disable-next-line global-require
-  const getValue = require('./index.js').default;
+  const getValue = require('.').default;
   return value.properties.reduce((obj, property) => {
     const object = { ...obj };
     // Support types: SpreadProperty and ExperimentalSpreadProperty

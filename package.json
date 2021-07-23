@@ -7,6 +7,7 @@
     "prebuild": "rimraf lib",
     "build": "babel src --out-dir lib",
     "prepublish": "not-in-publish || (safe-publish-latest && npm test && npm run build)",
+    "prelint": "npm run build",
     "lint": "eslint .",
     "pretest": "npm run lint",
     "test": "npm run tests-only --",

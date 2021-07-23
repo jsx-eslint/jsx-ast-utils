@@ -8,6 +8,6 @@
  */
 export default function extractValueFromChainExpression(value) {
   // eslint-disable-next-line global-require
-  const getValue = require('./index.js').default;
+  const getValue = require('.').default;
   return getValue(value.expression);
 }

@@ -8,6 +8,6 @@
  */
 export default function extractValueFromMemberExpression(value) {
   // eslint-disable-next-line global-require
-  const getValue = require('./index.js').default;
+  const getValue = require('.').default;
   return `${getValue(value.object)}${value.optional ? '?.' : '.'}${getValue(value.property)}`;
 }

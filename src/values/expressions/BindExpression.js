@@ -9,7 +9,7 @@
  */
 export default function extractValueFromBindExpression(value) {
   // eslint-disable-next-line global-require
-  const getValue = require('./index.js').default;
+  const getValue = require('.').default;
   const callee = getValue(value.callee);
 
   // If value.object === null, the callee must be a MemberExpression.
