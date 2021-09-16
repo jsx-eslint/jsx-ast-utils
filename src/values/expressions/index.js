@@ -58,7 +58,7 @@ const TYPES = {
 
 const noop = () => null;
 
-const errorMessage = (expression) => `The prop value with an expression type of ${expression} could not be resolved. Please file issue to get this fixed immediately.`;
+const errorMessage = (expression) => `The prop value with an expression type of ${expression} could not be resolved. Please file an issue ( https://github.com/jsx-eslint/jsx-ast-utils/issues/new ) to get this fixed immediately.`;
 
 /**
  * This function maps an AST value node

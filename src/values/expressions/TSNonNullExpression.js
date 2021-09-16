@@ -12,7 +12,7 @@ const extractValueFromThisExpression = require('./ThisExpression').default;
 export default function extractValueFromTSNonNullExpression(value) {
   // eslint-disable-next-line global-require
   // const getValue = require('.').default;
-  const errorMessage = 'The prop value with an expression type of TSNonNullExpression could not be resolved. Please file issue to get this fixed immediately.';
+  const errorMessage = 'The prop value with an expression type of TSNonNullExpression could not be resolved. Please file an issue ( https://github.com/jsx-eslint/jsx-ast-utils/issues/new ) to get this fixed immediately.';
 
   // it's just the name
   if (value.type === 'Identifier') {
