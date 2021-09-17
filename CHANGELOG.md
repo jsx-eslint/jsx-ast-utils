@@ -1,6 +1,25 @@
 Unreleased
 ==================
 
+3.2.1 / 2021-09-16
+==================
+- [patch] include project name in error logging (#113)
+- [readme] update badges, URLs
+- [Deps] update `array-includes`
+- [meta] don‘t lint coverage results
+- [meta] add GitHub org to FUNDING.yml
+- [meta] add OpenCollective to FUNDING.yml
+- [meta] run `aud` in `posttest`
+- [meta] add Automatic Rebase and Require Allow Edits workflows
+- [actions] use `node/install` instead of `node/run`; use `codecov` action
+- [Tests] unpin `caniuse-lite`, since breaking change is fixed
+- [Tests] pin `caniuse-lite`, due to breaking change in patch version
+- [Tests] fix linting errors
+- [Tests] migrate tests to Github Actions
+- [Tests] stop using coveralls
+- [Tests] skip failing fragment test in node 4
+- [Dev Deps] update `@babel/core`, `@babel/parser`, `aud`, `eslint`, `eslint-plugin-import`, `object.entries`, `object.fromentries`
+
 3.2.0 / 2020-12-16
 ==================
 - [New] add support for fragment syntax (`<>`) (#108)
