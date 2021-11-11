@@ -1,5 +1,3 @@
-import assign from 'object.assign';
-
 /**
  * Extractor function for an ObjectExpression type value node.
  * An object expression is using {}.
@@ -14,7 +12,7 @@ export default function extractValueFromObjectExpression(value) {
     // Support types: SpreadProperty and ExperimentalSpreadProperty
     if (/^(?:Experimental)?Spread(?:Property|Element)$/.test(property.type)) {
       if (property.argument.type === 'ObjectExpression') {
-        return assign(object, extractValueFromObjectExpression(property.argument));
+        return Object.assign(object, extractValueFromObjectExpression(property.argument));
       }
     } else {
       object[getValue(property.key)] = getValue(property.value);
