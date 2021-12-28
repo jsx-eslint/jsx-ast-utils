@@ -6,7 +6,8 @@
   "scripts": {
     "prebuild": "rimraf lib",
     "build": "babel src --out-dir lib",
-    "prepublish": "not-in-publish || (safe-publish-latest && npm test && npm run build)",
+    "prepublishOnly": "safe-publish-latest && npm test && npm run build",
+    "prepublish": "not-in-publish || npm run prepublishOnly",
     "prelint": "npm run build",
     "lint": "eslint .",
     "pretest": "npm run lint",
@@ -16,29 +17,29 @@
     "test:watch": "npm run tests-only -- --watch"
   },
   "devDependencies": {
-    "@babel/core": "^7.15.5",
-    "@babel/parser": "^7.15.6",
+    "@babel/core": "^7.16.5",
+    "@babel/eslint-parser": "^7.16.5",
+    "@babel/parser": "^7.16.6",
     "aud": "^1.1.5",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
-    "babel-eslint": "^10.1.0",
     "babel-jest": "^20.0.3",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-replace-object-assign": "^1.0.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babylon": "^6.18.0",
-    "eslint": "^7.32.0",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-plugin-import": "^2.24.2",
+    "eslint": "^8.5.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.3",
     "flow-parser": "^0.126.1",
     "in-publish": "^2.0.1",
     "jest": "^20.0.4",
     "jest-cli": "^20.0.4",
-    "object.entries": "^1.1.4",
-    "object.fromentries": "^2.0.4",
+    "object.entries": "^1.1.5",
+    "object.fromentries": "^2.0.5",
     "rimraf": "^2.7.1",
-    "safe-publish-latest": "^1.1.4"
+    "safe-publish-latest": "^2.0.0"
   },
   "engines": {
     "node": ">=4.0"
