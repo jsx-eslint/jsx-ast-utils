@@ -1,5 +1,6 @@
 Unreleased
 ==================
+- [Fix] `TSNonNullExpression`: handle computed MemberExpressions (#109)
 
 3.2.1 / 2021-09-16
 ==================
