@@ -1099,6 +1099,15 @@ describe('getPropValue', () => {
 
       assert.equal(actual, expected);
     });
+
+    it('should correctly evaluate a bracketed navigation expression that prefixes with !', () => {
+      const prop = extractProp('<Link foo={data![0].url} />');
+
+      const expected = 'data![0].url';
+      const actual = getPropValue(prop);
+
+      assert.equal(actual, expected);
+    });
   });
 
   describeIfNotBabylon('TSNonNullExpression', () => {
