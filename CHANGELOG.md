@@ -1,6 +1,7 @@
 Unreleased
 ==================
 - [Fix] `TSNonNullExpression`: handle computed MemberExpressions (#109)
+- [Fix] avoid a crash in ChainExpressions in a TSAsExpression
 
 3.2.1 / 2021-09-16
 ==================

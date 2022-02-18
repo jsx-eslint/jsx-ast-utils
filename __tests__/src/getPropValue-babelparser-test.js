@@ -1091,19 +1091,9 @@ describe('getPropValue', () => {
     });
 
     it('should return string representation of variable identifier wrapped in a Typescript type coercion', () => {
-      changePlugins((pls) => [...pls, 'typescript']);
       const prop = extractProp('<div foo={bar as any} />');
 
       const expected = 'bar';
-      const actual = getPropValue(prop);
-
-      assert.equal(actual, expected);
-    });
-
-    it('should correctly evaluate a bracketed navigation expression that prefixes with !', () => {
-      const prop = extractProp('<Link foo={data![0].url} />');
-
-      const expected = 'data![0].url';
       const actual = getPropValue(prop);
 
       assert.equal(actual, expected);
@@ -1189,6 +1179,24 @@ describe('getPropValue', () => {
       const prop = extractProp('<a foo={this.props.href!}>Download</a>');
       const expected = 'this.props.href!';
       const actual = getPropValue(prop);
+      assert.equal(actual, expected);
+    });
+
+    it('should correctly evaluate a bracketed navigation expression that prefixes with !', () => {
+      const prop = extractProp('<Link foo={data![0].url} />');
+
+      const expected = 'data![0].url';
+      const actual = getPropValue(prop);
+
+      assert.equal(actual, expected);
+    });
+
+    it('works with an optional chain with an `as`', () => {
+      const prop = extractProp('<img src={images?.footer as string} />', 'src');
+
+      const expected = 'images?.footer';
+      const actual = getPropValue(prop, 'src');
+
       assert.equal(actual, expected);
     });
   });
