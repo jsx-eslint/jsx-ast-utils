@@ -1,6 +1,11 @@
 Unreleased
 ==================
 
+3.3.0 / 2022-04-30
+==================
+- [New] add `JSXFragment`, `JSXText`; fix `JSXElement` to handle children
+- [Dev Deps] update `@babel/core`, `@babel/parser`, `eslint`, `eslint-plugin-import`
+
 3.2.2 / 2022-03-31
 ==================
 - [Fix] `TSNonNullExpression`: handle computed MemberExpressions (#109)
