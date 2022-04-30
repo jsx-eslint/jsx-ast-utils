@@ -132,7 +132,7 @@ describe('getPropValue', () => {
     });
   });
 
-  describe('JSXFragment', () => {
+  (fallbackToBabylon ? describe.skip : describe)('JSXFragment', () => {
     it('should return correct representation of JSX fragment as a string', () => {
       const prop = extractProp('<div foo={<></>} />');
 
