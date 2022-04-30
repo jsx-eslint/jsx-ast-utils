@@ -121,6 +121,35 @@ describe('getPropValue', () => {
 
       assert.equal(actual, expected);
     });
+
+    it('should return correct representation of JSX element with children as a string', () => {
+      const prop = extractProp('<div foo={<bar><baz />foo</bar>} />');
+
+      const expected = '<bar><baz />foo</bar>';
+      const actual = getPropValue(prop);
+
+      assert.equal(actual, expected);
+    });
+  });
+
+  describe('JSXFragment', () => {
+    it('should return correct representation of JSX fragment as a string', () => {
+      const prop = extractProp('<div foo={<></>} />');
+
+      const expected = '<></>';
+      const actual = getPropValue(prop);
+
+      assert.equal(actual, expected);
+    });
+
+    it('should return correct representation of JSX fragment with children as a string', () => {
+      const prop = extractProp('<div foo={<><div />abc</>} />');
+
+      const expected = '<><div />abc</>';
+      const actual = getPropValue(prop);
+
+      assert.equal(actual, expected);
+    });
   });
 
   describe('Identifier', () => {
