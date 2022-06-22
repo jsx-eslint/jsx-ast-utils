@@ -1,6 +1,14 @@
 Unreleased
 ==================
 
+3.3.1 / 2022-06-22
+==================
+- [Fix] `ArrayExpression`: handle sparse array (#117)
+- [Deps] update `array-includes`
+- [meta] move jest config to separate file
+- [meta] use `npmignore` to autogenerate an npmignore file
+- [Dev Deps] update `@babel/core`, `@babel/eslint-parser`, `@babel/parser`, `eslint`
+
 3.3.0 / 2022-04-30
 ==================
 - [New] add `JSXFragment`, `JSXText`; fix `JSXElement` to handle children
