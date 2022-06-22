@@ -58,25 +58,14 @@
     "url": "https://github.com/jsx-eslint/jsx-ast-utils"
   },
   "license": "MIT",
-  "jest": {
-    "coverageReporters": [
-      "lcov",
-      "html",
-      "json"
-    ],
-    "coverageDirectory": "coverage",
-    "testPathIgnorePatterns": [
-      "/node_modules/",
-      "helper.js"
-    ]
-  },
   "dependencies": {
     "array-includes": "^3.1.5",
     "object.assign": "^4.1.2"
   },
   "publishConfig": {
     "ignore": [
-      ".github/workflows"
+      ".github/workflows",
+      "jest.config.js"
     ]
   }
 }
