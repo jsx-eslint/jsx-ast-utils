@@ -31,6 +31,10 @@ export default function extractValueFromTSNonNullExpression(value) {
     return value.value;
   }
 
+  if (value.type === 'TSAsExpression') {
+    return extractValueFromTSNonNullExpression(value.expression);
+  }
+
   if (value.type === 'ThisExpression') {
     return extractValueFromThisExpression();
   }

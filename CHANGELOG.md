@@ -1,5 +1,6 @@
 Unreleased
 ==================
+- [Fix] Handle `as` casts in TSNonNullExpression
 
 3.3.1 / 2022-06-22
 ==================

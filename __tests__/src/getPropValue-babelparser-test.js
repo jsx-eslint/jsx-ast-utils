@@ -1183,6 +1183,13 @@ describe('getPropValue', () => {
       assert.equal(actual, expected);
     });
 
+    it('should return string representation of a cast wrapped in a deep Typescript non-null assertion', () => {
+      const prop = extractProp('<div foo={(bar as Bar).baz!} />');
+      const actual = getPropValue(prop);
+      const expected = 'bar.baz!';
+      assert.equal(actual, expected);
+    });
+
     it('should return string representation of an object wrapped in a deep Typescript non-null assertion', () => {
       const prop = extractProp('<div foo={(bar.bar)!} />');
       const expected = '(bar.bar)!';
