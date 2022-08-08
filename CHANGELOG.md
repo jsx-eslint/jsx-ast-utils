@@ -1,6 +1,12 @@
 Unreleased
 ==================
 
+3.3.3 / 2022-08-08
+==================
+- [Fix] Mark ChainExpression as a noop (#109)
+- [Deps] update `object.assign`
+- [Dev Deps] update `@babel/core`, `@babel/eslint-parser`, `@babel/parser`, `eslint`
+
 3.3.2 / 2022-07-06
 ==================
 - [Fix] Handle `as` casts in TSNonNullExpression
