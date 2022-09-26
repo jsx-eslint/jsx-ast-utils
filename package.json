@@ -15,13 +15,16 @@
     "test": "npm run tests-only --",
     "posttest": "aud --production",
     "tests-only": "jest --coverage",
-    "test:watch": "npm run tests-only -- --watch"
+    "test:watch": "npm run tests-only -- --watch",
+    "version": "auto-changelog && git add CHANGELOG.md",
+    "postversion": "auto-changelog && git add CHANGELOG.md && git commit --no-edit --amend && git tag -f \"v$(node -e \"console.log(require('./package.json').version)\")\""
   },
   "devDependencies": {
     "@babel/core": "^7.19.1",
     "@babel/eslint-parser": "^7.19.1",
     "@babel/parser": "^7.19.1",
     "aud": "^2.0.1",
+    "auto-changelog": "^2.4.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-jest": "^20.0.3",
@@ -61,6 +64,15 @@
   "dependencies": {
     "array-includes": "^3.1.5",
     "object.assign": "^4.1.4"
+  },
+  "auto-changelog": {
+    "output": "CHANGELOG.md",
+    "template": "keepachangelog",
+    "unreleased": false,
+    "commitLimit": false,
+    "backfillLimit": false,
+    "hideCredit": true,
+    "startingVersion": "3.3.4"
   },
   "publishConfig": {
     "ignore": [
