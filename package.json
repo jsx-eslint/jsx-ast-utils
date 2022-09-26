@@ -18,10 +18,10 @@
     "test:watch": "npm run tests-only -- --watch"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.10",
-    "@babel/eslint-parser": "^7.18.9",
-    "@babel/parser": "^7.18.11",
-    "aud": "^2.0.0",
+    "@babel/core": "^7.19.1",
+    "@babel/eslint-parser": "^7.19.1",
+    "@babel/parser": "^7.19.1",
+    "aud": "^2.0.1",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-jest": "^20.0.3",
