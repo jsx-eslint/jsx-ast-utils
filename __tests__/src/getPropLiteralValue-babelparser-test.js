@@ -6,6 +6,7 @@ import {
   describeIfNotBabylon,
   changePlugins,
   setParserName,
+  setIsESM,
 } from '../helper';
 import { getLiteralPropValue } from '../../src/getPropValue';
 
@@ -489,6 +490,21 @@ describe('getLiteralPropValue', () => {
   describe('Bind expression', () => {
     it('should return null', () => {
       const prop = extractProp('<div foo={::this.handleClick} />');
+
+      const expected = null;
+      const actual = getLiteralPropValue(prop);
+
+      assert.deepEqual(actual, expected);
+    });
+  });
+
+  describeIfNotBabylon('import.meta', () => {
+    beforeEach(() => {
+      setIsESM();
+    });
+
+    it('should return null', () => {
+      const prop = extractProp('<div foo={import.meta.env.whyIsThisNotOnProcess} />');
 
       const expected = null;
       const actual = getLiteralPropValue(prop);
