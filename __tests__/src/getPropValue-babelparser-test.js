@@ -1148,6 +1148,13 @@ describe('getPropValue', () => {
       assert.equal(actual, expected);
     });
 
+    it('should return string representation of a TSNonNullExpression of form `function()!.property`', () => {
+      const prop = extractProp('<div foo={bar()!.bar} />');
+      const expected = 'bar()!.bar';
+      const actual = getPropValue(prop);
+      assert.equal(actual, expected);
+    });
+
     it('should return string representation of a TSNonNullExpression of form `object!.property!`', () => {
       const prop = extractProp('<div foo={bar!.bar!} />');
       const actual = getPropValue(prop);
