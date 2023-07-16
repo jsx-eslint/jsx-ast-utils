@@ -20,9 +20,9 @@
     "postversion": "auto-changelog && git add CHANGELOG.md && git commit --no-edit --amend && git tag -f \"v$(node -e \"console.log(require('./package.json').version)\")\""
   },
   "devDependencies": {
-    "@babel/core": "^7.22.5",
-    "@babel/eslint-parser": "^7.22.5",
-    "@babel/parser": "^7.22.5",
+    "@babel/core": "^7.22.9",
+    "@babel/eslint-parser": "^7.22.9",
+    "@babel/parser": "^7.22.7",
     "aud": "^2.0.3",
     "auto-changelog": "^2.4.0",
     "babel-cli": "^6.26.0",
@@ -33,7 +33,7 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babylon": "^6.18.0",
-    "eslint": "^8.43.0",
+    "eslint": "^8.45.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.27.5",
     "flow-parser": "^0.126.1",
