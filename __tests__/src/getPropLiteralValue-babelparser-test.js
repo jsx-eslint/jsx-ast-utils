@@ -547,7 +547,7 @@ describe('getLiteralPropValue', () => {
     });
 
     it('should work with a this.props value', () => {
-      const prop = extractProp('<a href={this.props.href!}>Download</a>');
+      const prop = extractProp('<a href={this.props.href!}>Download</a>', 'href');
       const expected = null;
       const actual = getLiteralPropValue(prop);
       assert.equal(actual, expected);
