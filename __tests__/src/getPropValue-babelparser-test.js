@@ -150,6 +150,28 @@ describe('getPropValue', () => {
 
       assert.equal(actual, expected);
     });
+
+    it('supports a prop value containing nested fragments', () => {
+      const propCode = `
+        <>
+          <div>Hello</div>
+          <>
+            <div>There</div>
+          </>
+        </>
+      `;
+      const code = `
+        <Hello
+          role="checkbox"
+          frag={${propCode}}
+        />
+      `;
+
+      const prop = extractProp(code, 'frag');
+      const actual = getPropValue(prop);
+
+      assert.deepEqual(actual, propCode.trim());
+    });
   });
 
   describe('Identifier', () => {
