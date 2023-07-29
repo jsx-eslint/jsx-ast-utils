@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v3.3.5](https://github.com/jsx-eslint/jsx-ast-utils/compare/v3.3.4...v3.3.5) - 2023-07-28
+
+### Fixed
+
+- [Fix] `extractProp`: support `JSXFragment` [`#132`](https://github.com/jsx-eslint/jsx-ast-utils/issues/132)
+
+### Commits
+
+- [Dev Deps] update `@babel/core`, `@babel/eslint-parser`, `@babel/parser`, `eslint` [`e5555d1`](https://github.com/jsx-eslint/jsx-ast-utils/commit/e5555d152dbe1e85324139756f637e65fe047976)
+- [Tests] fix a test [`bde3ba9`](https://github.com/jsx-eslint/jsx-ast-utils/commit/bde3ba9c9dc294d5472eefa0b3f31ab0e1aed739)
+
 ## [v3.3.4](https://github.com/jsx-eslint/jsx-ast-utils/compare/v3.3.3...v3.3.4) - 2023-06-28
 
 ### Commits
