@@ -1,4 +1,4 @@
-name: 'Tests: node.js < 10'
+name: 'Tests: node.js 18+'
 
 on: [pull_request, push]
 
@@ -6,13 +6,12 @@ jobs:
   tests:
     uses: ljharb/actions/.github/workflows/node.yml@main
     with:
-      range: '>= 4 < 10'
+      range: '^18.18.0 || ^20.9.0 || >=21.1.0'
       type: minors
       command: npm run tests-only
-      skip-ls-check: true
 
   node:
-    name: 'node < 10'
+    name: 'node 18+'
     needs: [tests]
     runs-on: ubuntu-latest
     steps:
