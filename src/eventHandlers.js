@@ -1,6 +1,3 @@
-import flat from 'array.prototype.flat';
-import values from 'object.values';
-
 /**
  * Common event handlers for JSX element event binding.
  */
@@ -105,6 +102,6 @@ const eventHandlersByType = {
   ],
 };
 
-export default flat(values(eventHandlersByType));
+export default Object.values(eventHandlersByType).flat();
 
 export { eventHandlersByType };
