@@ -280,14 +280,13 @@ console.log(eventHandlersByType);
 */
 ```
 
-
-[1]: https://npmjs.org/package/jsx-ast-utils
-[2]: https://versionbadg.es/jsx-eslint/jsx-ast-utils.svg
-[5]: https://david-dm.org/jsx-eslint/jsx-ast-utils.svg
-[6]: https://david-dm.org/jsx-eslint/jsx-ast-utils
-[7]: https://david-dm.org/jsx-eslint/jsx-ast-utils/dev-status.svg
-[8]: https://david-dm.org/jsx-eslint/jsx-ast-utils#info=devDependencies
-[11]: https://nodei.co/npm/jsx-ast-utils.png?downloads=true&stars=true
+[package-url]: https://npmjs.org/package/jsx-ast-utils
+[npm-version-svg]: https://versionbadg.es/jsx-eslint/jsx-ast-utils.svg
+[deps-svg]: https://david-dm.org/jsx-eslint/jsx-ast-utils.svg
+[deps-url]: https://david-dm.org/jsx-eslint/jsx-ast-utils
+[dev-deps-svg]: https://david-dm.org/jsx-eslint/jsx-ast-utils/dev-status.svg
+[dev-deps-url]: https://david-dm.org/jsx-eslint/jsx-ast-utils#info=devDependencies
+[npm-badge-png]: https://nodei.co/npm/jsx-ast-utils.png?downloads=true&stars=true
 [license-image]: https://img.shields.io/npm/l/jsx-ast-utils.svg
 [license-url]: LICENSE
 [downloads-image]: https://img.shields.io/npm/dm/jsx-ast-utils.svg
