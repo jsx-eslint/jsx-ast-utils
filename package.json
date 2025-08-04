@@ -48,7 +48,7 @@
     "safe-publish-latest": "^2.0.0"
   },
   "engines": {
-    "node": ">=4.0"
+    "node": "^18.18.0 || ^20.9.0 || >=21.1.0"
   },
   "keywords": [
     "jsx",
