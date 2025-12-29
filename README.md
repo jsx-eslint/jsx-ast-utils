@@ -293,5 +293,5 @@ console.log(eventHandlersByType);
 [downloads-url]: https://npm-stat.com/charts.html?package=jsx-ast-utils
 [codecov-image]: https://codecov.io/gh/jsx-eslint/jsx-ast-utils/branch/main/graphs/badge.svg
 [codecov-url]: https://app.codecov.io/gh/jsx-eslint/jsx-ast-utils/
-[actions-image]: https://img.shields.io/endpoint?url=https://github-actions-badge-u3jn4tfpocch.runkit.sh/jsx-eslint/jsx-ast-utils
+[actions-image]: https://img.shields.io/github/check-runs/jsx-eslint/jsx-ast-utils/main
 [actions-url]: https://github.com/jsx-eslint/jsx-ast-utils/actions
