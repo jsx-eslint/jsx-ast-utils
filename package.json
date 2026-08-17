@@ -41,14 +41,12 @@
     "jest": "^20.0.4",
     "jest-cli": "^20.0.4",
     "npmignore": "^0.3.1",
-    "object.entries": "^1.1.8",
-    "object.fromentries": "^2.0.8",
     "psl": "=1.9.0",
     "rimraf": "^2.7.1",
     "safe-publish-latest": "^2.0.0"
   },
   "engines": {
-    "node": ">=4.0"
+    "node": "^20.19.0 || ^22.13.0 || >=24"
   },
   "keywords": [
     "jsx",
@@ -62,12 +60,6 @@
     "url": "https://github.com/jsx-eslint/jsx-ast-utils"
   },
   "license": "MIT",
-  "dependencies": {
-    "array-includes": "^3.1.8",
-    "array.prototype.flat": "^1.3.3",
-    "object.assign": "^4.1.7",
-    "object.values": "^1.2.1"
-  },
   "auto-changelog": {
     "output": "CHANGELOG.md",
     "template": "keepachangelog",

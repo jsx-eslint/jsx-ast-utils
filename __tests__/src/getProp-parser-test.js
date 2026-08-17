@@ -1,7 +1,5 @@
 /* eslint-env mocha */
 import assert from 'assert';
-import entries from 'object.entries';
-import fromEntries from 'object.fromentries';
 import { getOpeningElement, setParserName, fallbackToBabylon } from '../helper';
 import getProp from '../../src/getProp';
 
@@ -172,5 +170,5 @@ function adjustLocationsRecursively(node, { startOffset, endOffset }) {
 }
 
 function mapValues(o, f) {
-  return fromEntries(entries(o).map(([k, v]) => [k, f(v)]));
+  return Object.fromEntries(Object.entries(o).map(([k, v]) => [k, f(v)]));
 }

@@ -1,6 +1,5 @@
 /* eslint-env mocha */
 import assert from 'assert';
-import includes from 'array-includes';
 import eventHandlers, { eventHandlersByType } from '../../src/eventHandlers';
 
 describe('eventHandlers', () => {
@@ -75,7 +74,7 @@ describe('eventHandlers', () => {
       'onAnimationEnd',
       'onAnimationIteration',
       'onTransitionEnd',
-    ].every((handlerName) => includes(eventHandlers, handlerName)));
+    ].every((handlerName) => eventHandlers.includes(handlerName)));
   });
 });
 
