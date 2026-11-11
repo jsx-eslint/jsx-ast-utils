@@ -511,6 +511,25 @@ describe('getLiteralPropValue', () => {
 
       assert.deepEqual(actual, expected);
     });
+
+    it('should return null for `import.meta` itself, without logging an error', () => {
+      const prop = extractProp('<div foo={import.meta} />');
+      let counter = 0;
+      // eslint-disable-next-line no-console
+      const errorOrig = console.error;
+      // eslint-disable-next-line no-console
+      console.error = () => {
+        counter += 1;
+      };
+
+      const expected = null;
+      const actual = getLiteralPropValue(prop);
+
+      // eslint-disable-next-line no-console
+      console.error = errorOrig;
+      assert.deepEqual(actual, expected);
+      assert.equal(counter, 0);
+    });
   });
 
   describeIfNotBabylon('Typescript', () => {

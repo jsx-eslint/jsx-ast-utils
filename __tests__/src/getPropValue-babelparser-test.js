@@ -7,6 +7,7 @@ import {
   fallbackToBabylon,
   describeIfNotBabylon,
   setParserName,
+  setIsESM,
 } from '../helper';
 import getPropValue from '../../src/getPropValue';
 
@@ -571,6 +572,30 @@ describe('getPropValue', () => {
       } else {
         runTest();
       }
+    });
+  });
+
+  describeIfNotBabylon('Meta property', () => {
+    beforeEach(() => {
+      setIsESM();
+    });
+
+    it('should return string representation of `import.meta`', () => {
+      const prop = extractProp('<div foo={import.meta} />');
+
+      const expected = 'import.meta';
+      const actual = getPropValue(prop);
+
+      assert.equal(actual, expected);
+    });
+
+    it('should return string representation of a member of `import.meta`', () => {
+      const prop = extractProp('<div foo={import.meta.env.FOO} />');
+
+      const expected = 'import.meta.env.FOO';
+      const actual = getPropValue(prop);
+
+      assert.equal(actual, expected);
     });
   });
 
