@@ -1273,5 +1273,24 @@ describe('getPropValue', () => {
       const actual = getPropValue(prop);
       assert.equal(actual, expected);
     });
+
+    it('should ignore an empty expression inside a JSX element prop value', () => {
+      const prop = extractProp('<div foo={<bar>{/* comment */}baz</bar>} />');
+      let counter = 0;
+      // eslint-disable-next-line no-console
+      const errorOrig = console.error;
+      // eslint-disable-next-line no-console
+      console.error = () => {
+        counter += 1;
+      };
+
+      const expected = '<bar>baz</bar>';
+      const actual = getPropValue(prop);
+
+      // eslint-disable-next-line no-console
+      console.error = errorOrig;
+      assert.equal(actual, expected);
+      assert.equal(counter, 0);
+    });
   });
 });
