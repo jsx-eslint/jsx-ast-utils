@@ -26,6 +26,7 @@ import TypeCastExpression from './TypeCastExpression';
 import SequenceExpression from './SequenceExpression';
 import TSNonNullExpression from './TSNonNullExpression';
 import AssignmentExpression from './AssignmentExpression';
+import MetaProperty from './MetaProperty';
 
 // Composition map of types to their extractor functions.
 const TYPES = {
@@ -58,6 +59,7 @@ const TYPES = {
   SequenceExpression,
   TSNonNullExpression,
   AssignmentExpression,
+  MetaProperty,
 };
 
 const noop = () => null;
@@ -157,6 +159,7 @@ const LITERAL_TYPES = {
   TypeCastExpression: noop,
   SequenceExpression: noop,
   ChainExpression: noop,
+  MetaProperty: noop,
 };
 
 /**
